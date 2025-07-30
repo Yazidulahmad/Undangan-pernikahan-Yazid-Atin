@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan | Yazid & Atin</title>
+    <style>
+        /* Font Imports */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap');
+        
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #5a4a42;
+            background-color: #f9f5f0;
+            line-height: 1.6;
+        }
+        
+        /* Header Section */
+        .header {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .couple-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .wedding-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+        
+        .divider {
+            width: 150px;
+            height: 2px;
+            background-color: white;
+            margin: 2rem 0;
+        }
+        
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #8c6e5d;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        /* Event Details */
+        .event-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .event-card {
+            width: 300px;
+            padding: 2rem;
+            margin: 1rem;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #8c6e5d;
+            margin-bottom: 1rem;
+        }
+        
+        /* Location */
+        .location {
+            margin-top: 3rem;
+        }
+        
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 3rem;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* RSVP Button */
+        .rsvp-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #8c6e5d;
+            color: white;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            border: 2px solid #8c6e5d;
+        }
+        
+        .rsvp-btn:hover {
+            background-color: transparent;
+            color: #8c6e5d;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #8c6e5d;
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .thank-you {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .couple-names {
+                font-size: 3.5rem;
+            }
+            
+            .event-details {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Couple Names -->
+    <div class="header">
+        <div class="couple-names">Yazid & Atin</div>
+        <div class="divider"></div>
+        <div class="wedding-date">Rabu, 24 Desember 2025</div>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div>Hari</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div>Jam</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div>Menit</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div>Detik</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction -->
+        <section>
+            <h2>Assalamualaikum Warahmatullahi Wabarakatuh</h2>
+            <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan putra-putri kami:</p>
+            
+            <div style="margin: 3rem 0;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Ahmad Yazidul Jihad</h3>
+                <p>Putra dari Bapak [Nama Ayah] & Ibu [Nama Ibu]</p>
+                
+                <div style="font-size: 2rem; margin: 1rem 0; color: #8c6e5d;">&</div>
+                
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Hartini</h3>
+                <p>Putri dari Bapak [Nama Ayah] & Ibu [Nama Ibu]</p>
+            </div>
+        </section>
+        
+        <!-- Event Details -->
+        <section>
+            <h2>Detail Acara</h2>
+            <div class="event-details">
+                <div class="event-card">
+                    <div class="event-title">Akad Nikah</div>
+                    <p>Rabu, 24 Desember 2025</p>
+                    <p>Pukul 09.00 WIB</p>
+                    <p>Desa Sukapura</p>
+                    <p>Kec. Rawamerta, Kab. Karawang</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-title">Resepsi</div>
+                    <p>Rabu, 24 Desember 2025</p>
+                    <p>Pukul 08.00 WIB</p>
+                    <p>Desa Sukapura</p>
+                    <p>Kec. Rawamerta, Kab. Karawang</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Location -->
+        <section class="location">
+            <h2>Lokasi Acara</h2>
+            <p>Desa Sukapura, Kecamatan Rawamerta, Kabupaten Karawang, Jawa Barat</p>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.0000000000005!2d107.30000000000001!3d-6.300000000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTgnMDAuMCJTIDEwN8KwMTgnMDAuMCJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"></iframe>
+            </div>
+        </section>
+        
+        <!-- Gallery -->
+        <section>
+            <h2>Galeri Kami</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Foto Prewedding">
+                <img src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Foto Prewedding">
+                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Foto Prewedding">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Foto Prewedding">
+            </div>
+        </section>
+        
+        <!-- RSVP -->
+        <section>
+            <h2>Konfirmasi Kehadiran</h2>
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+            <a href="#rsvp" class="rsvp-btn">Konfirmasi Kehadiran</a>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="thank-you">Terima Kasih</div>
+        <p>Atas doa dan restu yang diberikan, kami mengucapkan terima kasih.</p>
+        <p>Wassalamualaikum Warahmatullahi Wabarakatuh</p>
+        
+        <div style="margin-top: 2rem;">
+            <p>Keluarga Besar</p>
+            <p>Ahmad Yazidul Jihad & Hartini</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date("December 24, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
