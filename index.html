@@ -3,86 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Ahmad Yazidul Jihad & Hartini</title>
+    <title>Undangan Pernikahan Ahmad & Hartini</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&family=Dancing+Script:wght@700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
         
         body {
             margin: 0;
             padding: 0;
-            background-color: #f9f5f0;
-            color: #5a4a42;
             font-family: 'Montserrat', sans-serif;
-            background-image: linear-gradient(to bottom, #f9f5f0, #f0e6d9);
+            background-color: #fff9f2;
+            color: #5a4a42;
+            overflow-x: hidden;
         }
         
-        .invitation-container {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 50px;
+        .slideshow-container {
+            max-width: 100%;
             position: relative;
-            background: #fffcf8;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid #e8d9c5;
-            overflow: hidden;
-            border-radius: 5px;
         }
         
-        .floral-border {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23b38a6d" opacity="0.15" d="M50,30 C55,20 65,15 70,25 C75,35 65,40 60,50 C55,60 65,65 70,55 C75,45 85,40 80,50 C75,60 65,65 60,55 C55,45 45,50 50,60 C55,70 45,75 40,65 C35,55 25,60 30,50 C35,40 25,35 20,45 C15,55 25,60 30,50 C35,40 45,35 40,25 C35,15 45,10 50,20 C55,30 65,25 60,15 C55,5 45,10 50,20 Z"/></svg>');
-            background-size: 200px;
-            opacity: 0.3;
-            z-index: 0;
-        }
-        
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header {
+        .slide {
+            display: none;
+            padding: 80px 20px;
             text-align: center;
-            margin-bottom: 40px;
+            min-height: 100vh;
             position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        /* Slide 1 Background */
+        .slide-1 {
+            background-color: #fff5eb;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffb6c1" d="M30,50 C35,30 45,20 50,30 C55,20 65,30 70,50 C65,70 55,80 50,70 C45,80 35,70 30,50 Z"/></svg>'), 
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffd700" d="M20,60 C25,40 35,30 40,40 C45,30 55,40 60,60 C55,80 45,90 40,80 C35,90 25,80 20,60 Z"/></svg>');
+            background-size: 150px, 120px;
+            background-position: 10% 20%, 90% 70%;
+            background-repeat: no-repeat;
+        }
+        
+        /* Slide 2 Background */
+        .slide-2 {
+            background-color: #f8f4ff;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23dda0dd" d="M50,20 C60,10 70,15 80,30 C90,45 85,55 70,60 C55,65 45,55 40,40 C35,25 40,30 50,20 Z"/></svg>'), 
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%2398fb98" d="M30,40 C40,20 60,20 70,40 C60,60 40,60 30,40 Z"/></svg>');
+            background-size: 180px, 150px;
+            background-position: 5% 80%, 85% 20%;
+            background-repeat: no-repeat;
+        }
+        
+        /* Slide 3 Background */
+        .slide-3 {
+            background-color: #fff0f5;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ff69b4" d="M50,10 C60,0 80,10 90,30 C100,50 90,70 70,80 C50,90 30,80 20,60 C10,40 20,20 40,10 C45,5 50,5 50,10 Z"/></svg>'), 
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffa07a" d="M20,50 C30,30 50,20 70,30 C90,40 90,60 70,70 C50,80 30,70 20,50 Z"/></svg>');
+            background-size: 200px, 160px;
+            background-position: 15% 30%, 75% 60%;
+            background-repeat: no-repeat;
+        }
+        
+        /* Slide 4 Background */
+        .slide-4 {
+            background-color: #f0fff0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%232e8b57" d="M50,10 C70,0 90,20 90,40 C90,60 70,80 50,90 C30,80 10,60 10,40 C10,20 30,0 50,10 Z"/></svg>'), 
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ff6347" d="M30,20 C40,10 60,10 70,20 C80,30 80,50 70,60 C60,70 40,70 30,60 C20,50 20,30 30,20 Z"/></svg>');
+            background-size: 170px, 140px;
+            background-position: 90% 30%, 10% 70%;
+            background-repeat: no-repeat;
+        }
+        
+        .slide-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
         }
         
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             color: #b38a6d;
             margin: 20px 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-            letter-spacing: 2px;
         }
         
         .divider {
             width: 180px;
-            height: 1px;
+            height: 2px;
             background: linear-gradient(90deg, transparent, #b38a6d, transparent);
             margin: 25px auto;
             position: relative;
         }
         
         .divider:before, .divider:after {
-            content: "❦";
+            content: "✿";
             position: absolute;
-            top: -10px;
-            color: #b38a6d;
-            font-size: 16px;
+            top: -12px;
+            color: #ff6b88;
+            font-size: 20px;
         }
         
         .divider:before {
-            left: -5px;
+            left: -10px;
         }
         
         .divider:after {
-            right: -5px;
+            right: -10px;
         }
         
         .couple-names {
@@ -90,34 +127,31 @@
             font-size: 2.4rem;
             margin: 40px 0;
             line-height: 1.3;
-            text-align: center;
             color: #8c6a56;
         }
         
         .names {
             display: block;
-            margin: 10px 0;
+            margin: 15px 0;
         }
         
         .and {
             font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #b38a6d;
-            margin: 15px 0;
+            font-size: 2.2rem;
+            color: #ff6b88;
+            margin: 20px 0;
         }
         
         .parents {
-            font-size: 1rem;
-            margin-top: 5px;
+            font-size: 1.1rem;
+            margin-top: 8px;
             font-style: italic;
             color: #8c6a56;
         }
         
         .details {
-            margin: 50px 0;
             line-height: 1.8;
             font-size: 1.15rem;
-            text-align: center;
         }
         
         .event {
@@ -126,10 +160,9 @@
         
         .event-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #8c6a56;
-            margin-bottom: 10px;
-            font-weight: 700;
+            margin-bottom: 15px;
         }
         
         .date-time {
@@ -146,35 +179,44 @@
         .address {
             margin-top: 10px;
             font-size: 1rem;
-            line-height: 1.6;
         }
         
         .digital-envelope {
             background: #f8f1e8;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 15px;
             margin: 40px 0;
-            border: 1px dashed #b38a6d;
+            border: 2px dashed #b38a6d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .digital-envelope:before {
+            content: "❀";
+            position: absolute;
+            font-size: 60px;
+            color: rgba(255, 107, 136, 0.1);
+            right: 10px;
+            bottom: 10px;
         }
         
         .envelope-title {
             font-family: 'Playfair Display', serif;
             color: #8c6a56;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
         }
         
         .payment-method {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 15px 0;
-            gap: 15px;
+            margin: 20px 0;
+            gap: 20px;
         }
         
         .payment-logo {
-            width: 80px;
+            width: 90px;
             height: auto;
         }
         
@@ -187,66 +229,67 @@
             margin: 40px 0;
         }
         
-        .rsvp-button {
+        .nav-button {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 12px 30px;
             background: #b38a6d;
             color: white;
             text-decoration: none;
             border-radius: 30px;
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0 10px;
         }
         
-        .rsvp-button:hover {
+        .nav-button:hover {
             background: #8c6a56;
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
         
         .footer {
-            margin-top: 60px;
+            margin-top: 50px;
             font-size: 0.9rem;
-            text-align: center;
             color: #8c6a56;
             font-style: italic;
         }
         
         .floral-decoration {
+            font-size: 30px;
+            color: #ff6b88;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+        
+        .slide-indicators {
             text-align: center;
-            margin: 30px 0;
-            font-size: 24px;
-            color: #b38a6d;
-            opacity: 0.6;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.7);
         }
         
-        .ornament {
-            position: absolute;
-            font-size: 20px;
-            color: #b38a6d;
-            opacity: 0.3;
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
         }
         
-        .ornament-1 {
-            top: 20px;
-            left: 20px;
-            transform: rotate(-30deg);
-        }
-        
-        .ornament-2 {
-            bottom: 20px;
-            right: 20px;
-            transform: rotate(30deg);
+        .indicator.active {
+            background: #b38a6d;
         }
         
         @media (max-width: 768px) {
-            .invitation-container {
-                margin: 20px;
-                padding: 30px;
+            .slide-content {
+                padding: 30px 20px;
             }
             
             h1 {
@@ -259,40 +302,47 @@
             
             .payment-method {
                 flex-direction: column;
-                text-align: center;
             }
             
             .payment-info {
                 text-align: center;
+                margin-top: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="invitation-container">
-        <div class="floral-border"></div>
-        <div class="ornament ornament-1">❀</div>
-        <div class="ornament ornament-2">❁</div>
-        
-        <div class="content">
-            <div class="header">
+    <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="slide slide-1 active">
+            <div class="slide-content">
                 <h1>Undangan Pernikahan</h1>
                 <div class="divider"></div>
                 <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
+                <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
+                
+                <div class="couple-names">
+                    <span class="names">Hartini (Atin)</span>
+                    <span class="parents">Putri dari Bpk Ece & Ibu Maesaroh</span>
+                    <span class="and">&</span>
+                    <span class="names">Ahmad Yazidul Jihad (Yazid)</span>
+                    <span class="parents">Putra dari Bpk Suhada (Alm) & Ibu Didah Saidah</span>
+                </div>
+                
+                <div class="button-container">
+                    <button class="nav-button" onclick="nextSlide()">Lanjut</button>
+                </div>
+                
+                <div class="floral-decoration">✿ ❀ ✿</div>
             </div>
-            
-            <div class="couple-names">
-                <span class="names">Hartini (Atin)</span>
-                <span class="parents">Putri dari Bpk Ece & Ibu Maesaroh</span>
-                <span class="and">&</span>
-                <span class="names">Ahmad Yazidul Jihad (Yazid)</span>
-                <span class="parents">Putra dari Bpk Suhada (Alm) & Ibu Didah Saidah</span>
-            </div>
-            
-            <div class="divider"></div>
-            
-            <div class="details">
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide slide-2">
+            <div class="slide-content">
+                <h1>Detail Acara</h1>
+                <div class="divider"></div>
+                
                 <div class="event">
                     <div class="event-title">Resepsi Pernikahan</div>
                     <div class="date-time">Hari, Tanggal: Rabu, 24 Desember 2025</div>
@@ -312,8 +362,23 @@
                     Kab. Karawang</span>
                 </div>
                 
+                <div class="button-container">
+                    <button class="nav-button" onclick="prevSlide()">Kembali</button>
+                    <button class="nav-button" onclick="nextSlide()">Lanjut</button>
+                </div>
+                
+                <div class="floral-decoration">❁ ✽ ❁</div>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide slide-3">
+            <div class="slide-content">
+                <h1>Amplop Digital</h1>
+                <div class="divider"></div>
+                
                 <div class="digital-envelope">
-                    <div class="envelope-title">Amplop Digital</div>
+                    <div class="envelope-title">Kirim Hadiah via ShopeePay</div>
                     <p>Jika berkenan memberikan tanda kasih, dapat melalui:</p>
                     
                     <div class="payment-method">
@@ -329,21 +394,75 @@
                     <p style="margin-top: 20px; font-style: italic;">Terima kasih atas doa dan restunya</p>
                 </div>
                 
+                <div class="button-container">
+                    <button class="nav-button" onclick="prevSlide()">Kembali</button>
+                    <button class="nav-button" onclick="nextSlide()">Lanjut</button>
+                </div>
+                
+                <div class="floral-decoration">✽ ✤ ✽</div>
+            </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="slide slide-4">
+            <div class="slide-content">
+                <h1>Terima Kasih</h1>
+                <div class="divider"></div>
+                
                 <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-            </div>
-            
-            <div class="floral-decoration">✿ ❀ ✿</div>
-            
-            <div class="button-container">
-                <button class="rsvp-button">Konfirmasi Kehadiran</button>
-            </div>
-            
-            <div class="footer">
-                <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapat ketenangan hati dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
-                <p>(QS. Ar-Rum: 21)</p>
-                <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                
+                <div class="button-container">
+                    <button class="nav-button" onclick="prevSlide()">Kembali</button>
+                </div>
+                
+                <div class="footer">
+                    <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapat ketenangan hati dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+                    <p>(QS. Ar-Rum: 21)</p>
+                    <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                </div>
+                
+                <div class="floral-decoration">✿ ❁ ✿</div>
             </div>
         </div>
     </div>
+    
+    <div class="slide-indicators">
+        <span class="indicator active" onclick="goToSlide(0)"></span>
+        <span class="indicator" onclick="goToSlide(1)"></span>
+        <span class="indicator" onclick="goToSlide(2)"></span>
+        <span class="indicator" onclick="goToSlide(3)"></span>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function goToSlide(n) {
+            showSlide(n);
+        }
+        
+        // Auto slide change every 10 seconds
+        setInterval(() => {
+            nextSlide();
+        }, 10000);
+    </script>
 </body>
 </html>
