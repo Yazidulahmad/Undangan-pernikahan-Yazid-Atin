@@ -133,6 +133,46 @@
             right: -10px;
         }
         
+        /* Countdown Timer */
+        .countdown-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #b38a6d;
+            margin-bottom: 20px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: rgba(70, 70, 70, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            min-width: 80px;
+            border: 1px solid #b38a6d;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b88;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #b38a6d;
+            margin-top: 5px;
+        }
+        
         .couple-names {
             font-family: 'Playfair Display', serif;
             font-size: 2.4rem;
@@ -218,6 +258,50 @@
         .address {
             margin-top: 10px;
             font-size: 1rem;
+        }
+        
+        /* Google Maps Container */
+        .map-container {
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            height: 300px;
+            border: 2px solid #b38a6d;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(30%) contrast(110%) brightness(90%);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+            pointer-events: none;
+        }
+        
+        .map-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #b38a6d;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .map-button:hover {
+            background: #8c6a56;
         }
         
         .digital-envelope {
@@ -347,18 +431,6 @@
             transform: scale(1.3);
         }
         
-        /* GIF Background Effect */
-        .gif-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
         /* Particle Effect */
         .particles {
             position: absolute;
@@ -406,13 +478,27 @@
                 flex-direction: row;
                 transform: none;
             }
+            
+            .map-container {
+                height: 250px;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 10px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- GIF Background (uncomment to use) -->
-    <!-- <img src="https://i.gifer.com/7VE.gif" class="gif-background" alt="background"> -->
-    
     <!-- Floating Decorations -->
     <div class="floating floating-1">✿</div>
     <div class="floating floating-2">❁</div>
@@ -428,6 +514,7 @@
         <div class="page-indicator" onclick="goToPage(1)"></div>
         <div class="page-indicator" onclick="goToPage(2)"></div>
         <div class="page-indicator" onclick="goToPage(3)"></div>
+        <div class="page-indicator" onclick="goToPage(4)"></div>
     </div>
     
     <!-- Page 1 -->
@@ -441,10 +528,32 @@
             <div class="couple-names">
                 <span class="names">Hartini (Atin)</span>
                 <span class="parents">Putri dari Bpk Ece & Ibu Maesaroh</span>
-                <span class="and"></span>
                 <span class="and">&</span>
                 <span class="names">Ahmad Yazidul Jihad (Yazid)</span>
                 <span class="parents">Putra dari Bpk Suhada (Alm) & Ibu Didah Saidah</span>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-title">Menuju Hari Bahagia</div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
             </div>
             
             <div class="button-container">
@@ -473,13 +582,6 @@
                 <div class="date-time">Pukul: 09.30 WIB</div>
             </div>
             
-            <div class="venue">
-                Bertempat di:<br>
-                <span class="address">Desa Sukapura<br>
-                Kec. Rawamerta<br>
-                Kab. Karawang</span>
-            </div>
-            
             <div class="button-container">
                 <button class="nav-button" onclick="goToPage(0)">Kembali</button>
                 <button class="nav-button" onclick="goToPage(2)">Lanjut</button>
@@ -489,8 +591,37 @@
         </div>
     </div>
     
-    <!-- Page 3 -->
+    <!-- Page 3 - Lokasi -->
     <div class="page" id="page3">
+        <div class="content pop-up">
+            <h1>Lokasi Acara</h1>
+            <div class="divider"></div>
+            
+            <div class="venue">
+                Bertempat di:<br>
+                <span class="address">Desa Sukapura<br>
+                Kec. Rawamerta<br>
+                Kab. Karawang</span>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.3172397565936!2d107.298911!3d-6.394879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjMnNDEuNiJTIDEwN8KwMTcnNTYuMSJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+                <div class="map-overlay"></div>
+            </div>
+            
+            <a href="https://maps.google.com/maps?q=Desa+Sukapura,+Kec.+Rawamerta,+Kab.+Karawang" class="map-button" target="_blank">Buka di Google Maps</a>
+            
+            <div class="button-container">
+                <button class="nav-button" onclick="goToPage(1)">Kembali</button>
+                <button class="nav-button" onclick="goToPage(3)">Lanjut</button>
+            </div>
+            
+            <div class="floral-decoration">✽ ✤ ✽</div>
+        </div>
+    </div>
+    
+    <!-- Page 4 - Amplop Digital -->
+    <div class="page" id="page4">
         <div class="content pop-up">
             <h1>Amplop Digital</h1>
             <div class="divider"></div>
@@ -498,6 +629,10 @@
             <div class="digital-envelope">
                 <div class="envelope-title">Kirim Hadiah via ShopeePay</div>
                 <p>Jika berkenan memberikan tanda kasih, dapat melalui:</p>
+                
+                <div class="payment-method">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/ShopeePay_Logo.svg/1200px-ShopeePay_Logo.svg.png" alt="ShopeePay" class="payment-logo">
+                    <div class="payment-info">
                         <strong>Ahmad Yazidul Jihad</strong><br>
                         085885380809 (Yazidulahmad)<br><br>
                         <strong>Hartini</strong><br>
@@ -509,16 +644,16 @@
             </div>
             
             <div class="button-container">
-                <button class="nav-button" onclick="goToPage(1)">Kembali</button>
-                <button class="nav-button" onclick="goToPage(3)">Lanjut</button>
+                <button class="nav-button" onclick="goToPage(2)">Kembali</button>
+                <button class="nav-button" onclick="goToPage(4)">Lanjut</button>
             </div>
             
-            <div class="floral-decoration">✽ ✤ ✽</div>
+            <div class="floral-decoration">✤ ✿ ✤</div>
         </div>
     </div>
     
-    <!-- Page 4 -->
-    <div class="page" id="page4">
+    <!-- Page 5 - Penutup -->
+    <div class="page" id="page5">
         <div class="content pop-up">
             <h1>Terima Kasih</h1>
             <div class="divider"></div>
@@ -526,7 +661,7 @@
             <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
             
             <div class="button-container">
-                <button class="nav-button" onclick="goToPage(2)">Kembali</button>
+                <button class="nav-button" onclick="goToPage(3)">Kembali</button>
             </div>
             
             <div class="footer">
@@ -591,11 +726,39 @@
             }
         }
         
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('December 24, 2025 08:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display result
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+            
+            // If countdown is finished
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown').innerHTML = "<div style='color:#b38a6d; font-size:1.5rem;'>Acara Sudah Dimulai!</div>";
+            }
+        }
+        
+        // Update countdown every second
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Initial call
+        updateCountdown();
+        
         // Create particles when page loads
         window.addEventListener('load', createParticles);
-        
-        // To use a GIF background, uncomment the line below and add your GIF URL
-        // document.querySelector('.gif-background').style.display = 'block';
     </script>
 </body>
 </html>
