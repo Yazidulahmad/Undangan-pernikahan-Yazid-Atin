@@ -168,6 +168,39 @@
             background: #8c6a56;
         }
         
+        /* Guest Messages Section */
+        .messages-container {
+            margin-top: 40px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .message-item {
+            background: rgba(50, 50, 50, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 3px solid #b38a6d;
+        }
+        
+        .message-author {
+            font-weight: bold;
+            color: #b38a6d;
+            margin-bottom: 5px;
+        }
+        
+        .message-text {
+            font-style: italic;
+        }
+        
+        .message-time {
+            font-size: 0.8rem;
+            color: #888;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
         /* Navigation */
         .nav-buttons {
             display: flex;
@@ -201,6 +234,21 @@
             opacity: 0.7;
         }
         
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(50, 50, 50, 0.5);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #b38a6d;
+            border-radius: 10px;
+        }
+        
         @media (max-width: 768px) {
             .content {
                 padding: 30px 20px;
@@ -212,6 +260,19 @@
             
             .couple-names {
                 font-size: 1.8rem;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 10px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .map-container {
+                height: 250px;
             }
         }
     </style>
@@ -387,12 +448,16 @@
         
         <div class="message-form">
             <div class="form-group">
-                <input type="text" placeholder="Nama Anda" required>
+                <input type="text" id="guest-name" placeholder="Nama Anda" required>
             </div>
             <div class="form-group">
-                <textarea placeholder="Tulis pesan dan doa disini..." required></textarea>
+                <textarea id="guest-message" placeholder="Tulis pesan dan doa disini..." required></textarea>
             </div>
-            <button type="submit" class="submit-btn">Kirim Ucapan</button>
+            <button type="button" class="submit-btn" onclick="submitMessage()">Kirim Ucapan</button>
+        </div>
+        
+        <div class="messages-container" id="messages-display">
+            <!-- Messages will appear here -->
         </div>
         
         <div class="floral">✿ ✤ ✿</div>
@@ -411,6 +476,14 @@
         });
         document.getElementById(sectionId).style.display = 'flex';
         window.scrollTo(0, 0);
+        
+        // Scroll to bottom of messages when opening message section
+        if (sectionId === 'message') {
+            setTimeout(() => {
+                const container = document.getElementById('messages-display');
+                container.scrollTop = container.scrollHeight;
+            }, 100);
+        }
     }
 
     // Countdown Timer
@@ -438,6 +511,82 @@
     const countdownTimer = setInterval(updateCountdown, 1000);
     updateCountdown();
 
+    // Guest Messages System
+    let messages = [];
+    
+    // Load messages from localStorage if available
+    if (localStorage.getItem('weddingMessages')) {
+        messages = JSON.parse(localStorage.getItem('weddingMessages'));
+    } else {
+        // Add sample message if no messages exist
+        messages = [{
+            name: "Keluarga Mempelai",
+            message: "Terima kasih atas doa dan dukungannya. Silakan tinggalkan pesan untuk kami!",
+            time: getCurrentTime()
+        }];
+        saveMessages();
+    }
+    
+    function getCurrentTime() {
+        const now = new Date();
+        return `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')} - ${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
+    }
+    
+    function displayMessages() {
+        const container = document.getElementById('messages-display');
+        container.innerHTML = '';
+        
+        // Show newest messages first
+        [...messages].reverse().forEach(msg => {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message-item';
+            messageElement.innerHTML = `
+                <div class="message-author">${msg.name}</div>
+                <div class="message-text">${msg.message}</div>
+                <div class="message-time">${msg.time}</div>
+            `;
+            container.appendChild(messageElement);
+        });
+    }
+    
+    function saveMessages() {
+        localStorage.setItem('weddingMessages', JSON.stringify(messages));
+    }
+    
+    function submitMessage() {
+        const nameInput = document.getElementById('guest-name');
+        const messageInput = document.getElementById('guest-message');
+        
+        if (nameInput.value.trim() === '' || messageInput.value.trim() === '') {
+            alert('Silakan isi nama dan pesan Anda');
+            return;
+        }
+        
+        // Add new message
+        messages.push({
+            name: nameInput.value.trim(),
+            message: messageInput.value.trim(),
+            time: getCurrentTime()
+        });
+        
+        // Save to localStorage
+        saveMessages();
+        
+        // Clear inputs
+        nameInput.value = '';
+        messageInput.value = '';
+        
+        // Update display
+        displayMessages();
+        
+        // Scroll to bottom
+        const container = document.getElementById('messages-display');
+        container.scrollTop = container.scrollHeight;
+    }
+    
+    // Initialize messages display
+    displayMessages();
+    
     // Show cover page first
     showSection('cover');
 </script>
