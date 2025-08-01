@@ -11,7 +11,7 @@
             --secondary-color: #f7d794;
             --accent-color: #f78fb3;
             --text-color: #333;
-            --light-color: #fff9f9;
+            --light-color: #ffe6e6; /* Changed to pink background */
         }
 
         * {
@@ -23,7 +23,7 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--text-color);
-            background-color: var(--light-color);
+            background-color: var(--light-color); /* Pink background applied */
             overflow-x: hidden;
         }
 
@@ -364,7 +364,7 @@
                     <div class="name">Hartini</div>
                     <div class="parent-names">Putri dari Bpk. Ece & Ibu Maesaroh</div>
                 </div>
-                <p>Kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
+                <p id="personalGreeting">Kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
                 <div class="guest-input" style="margin-top: 20px;">
                     <input type="text" id="guestName" placeholder="Masukkan nama Anda" style="padding: 10px; border-radius: 50px; border: 1px solid #ddd; width: 80%; max-width: 300px;">
                     <button class="btn" onclick="personalizeInvitation()">Konfirmasi Kehadiran</button>
@@ -376,7 +376,7 @@
         <section class="section" id="opening">
             <div class="section-content">
                 <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-                <p>Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
+                <p id="openingGreeting">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
                 <div class="couple-names" style="margin: 20px 0;">
                     <div class="name">Ahmad Yazidul Jihad</div>
                     <div class="name">Hartini</div>
@@ -399,7 +399,7 @@
                     <p>08:00 WIB - Selesai</p>
                     <p>24 Desember 2025</p>
                 </div>
-                <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+                <p id="invitationGreeting">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
             </div>
         </section>
 
@@ -460,7 +460,7 @@
         <section class="section" id="closing">
             <div class="section-content">
                 <h2>Penutup</h2>
-                <p>Atas kehadiran dan doa restunya, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
+                <p id="closingGreeting">Atas kehadiran dan doa restunya, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
                 <div style="margin: 30px 0;">
                     <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
                 </div>
@@ -710,13 +710,21 @@
             const guestName = document.getElementById('guestName').value.trim();
             if (guestName) {
                 saveGuestData(guestName);
-                alert(`Terima kasih ${guestName}, kami tunggu kehadiran Anda pada hari pernikahan kami!`);
                 
-                // Update tampilan dengan nama tamu
-                const personalizedElements = document.querySelectorAll('.personalized-greeting');
-                personalizedElements.forEach(el => {
-                    el.textContent = `Kepada Yth. ${guestName}`;
-                });
+                // Personalisasi ucapan di berbagai section
+                document.getElementById('personalGreeting').textContent = 
+                    `Kepada Yth. ${guestName}, kami mengundang Anda untuk hadir dalam acara pernikahan kami`;
+                
+                document.getElementById('openingGreeting').textContent = 
+                    `Kepada Yth. ${guestName}, dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:`;
+                
+                document.getElementById('invitationGreeting').textContent = 
+                    `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.`;
+                
+                document.getElementById('closingGreeting').textContent = 
+                    `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
+                
+                alert(`Terima kasih ${guestName}, kami tunggu kehadiran Anda pada hari pernikahan kami!`);
             } else {
                 alert('Silakan masukkan nama Anda terlebih dahulu');
             }
