@@ -27,741 +27,233 @@
             overflow-x: hidden;
         }
 
-        .flower {
-            position: absolute;
-            font-size: 24px;
-            opacity: 0.7;
-            animation: float 5s infinite ease-in-out;
-            z-index: -1;
-            color: var(--accent-color);
-        }
+        /* [ALL YOUR EXISTING STYLES REMAIN THE SAME UNTIL THE MUSIC PLAYER SECTION] */
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .container {
-            max-width: 100%;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section {
-            min-height: 100vh;
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
-
-        .section-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            width: 100%;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Great Vibes', cursive;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-        }
-
-        h3 {
-            font-size: 2rem;
-        }
-
-        p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .couple-names {
-            margin: 30px 0;
-            padding: 20px;
-            border-top: 1px solid var(--accent-color);
-            border-bottom: 1px solid var(--accent-color);
-        }
-
-        .name {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
-            margin: 10px 0;
-            color: var(--accent-color);
-        }
-
-        .parent-names {
-            font-size: 1rem;
-            margin: 5px 0;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            margin: 0 10px;
-            text-align: center;
-        }
-
-        .countdown-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            background-color: var(--light-color);
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--accent-color);
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-
-        .envelope {
-            background-color: var(--secondary-color);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.5s ease;
-            border: 1px solid var(--accent-color);
-        }
-
-        .envelope:hover {
-            transform: rotateY(10deg) rotateX(5deg);
-        }
-
-        .envelope::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 10px 10px 0 0;
-        }
-
-        .guest-form {
-            margin-top: 30px;
-            background-color: rgba(139, 0, 0, 0.3);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--accent-color);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--accent-color);
-            border-radius: 5px;
-            font-family: inherit;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-        }
-
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        .messages-container {
-            margin-top: 30px;
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: rgba(139, 0, 0, 0.3);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--accent-color);
-        }
-
-        .message {
-            padding: 10px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid var(--accent-color);
-            text-align: left;
-        }
-
-        .message-name {
-            font-weight: 600;
-            color: var(--accent-color);
-        }
-
-        .message-text {
-            margin-top: 5px;
-        }
-
-        .message-time {
-            font-size: 0.8rem;
-            color: #ccc;
-            margin-top: 5px;
-        }
-
-        .map-container {
-            margin: 30px 0;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--accent-color);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .navigation {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 100;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 99, 71, 0.5);
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-dot.active {
-            background-color: var(--accent-color);
-            transform: scale(1.3);
-        }
-
-        /* UPDATED MUSIC PLAYER STYLES */
+        /* VINYL RECORD PLAYER STYLES */
         .music-player {
             position: fixed;
             bottom: 60px;
             right: 20px;
             z-index: 100;
-            width: 80px;
-            height: 80px;
-            background-color: rgba(139, 0, 0, 0.7);
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--accent-color);
+            width: 100px;
+            height: 100px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .music-player:hover {
-            transform: scale(1.1);
+        .vinyl-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .vinyl {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #333 30%, #111 70%);
+            border-radius: 50%;
+            border: 2px solid #444;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+            animation: rotate 20s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .vinyl.active {
+            animation-play-state: running;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .vinyl::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20%;
+            height: 20%;
+            background: linear-gradient(45deg, #fff, #ccc);
+            border-radius: 50%;
+            border: 2px solid #999;
+            z-index: 2;
+        }
+
+        .vinyl::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 5%;
+            height: 5%;
+            background: #000;
+            border-radius: 50%;
+            z-index: 3;
+        }
+
+        .vinyl-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Great Vibes', cursive;
+            font-size: 0.8rem;
+            text-align: center;
+            z-index: 1;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .player-arm {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 40px;
+            height: 60px;
+            transform-origin: bottom left;
+            transform: rotate(-30deg);
+            transition: transform 0.5s ease;
+            z-index: 2;
+        }
+
+        .player-arm.active {
+            transform: rotate(10deg);
+        }
+
+        .arm-base {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            background: #555;
+            border-radius: 50%;
+        }
+
+        .arm-rod {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            width: 3px;
+            height: 50px;
+            background: linear-gradient(to right, #777, #999);
+            transform: rotate(15deg);
+            transform-origin: bottom;
+        }
+
+        .arm-head {
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 15px;
+            height: 15px;
+            background: #666;
+            border-radius: 50%;
         }
 
         .music-controls {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             gap: 10px;
         }
 
         .music-controls button {
-            background: transparent;
+            background: rgba(139, 0, 0, 0.7);
             border: none;
             color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .music-controls button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .music-controls button.active {
-            background-color: var(--accent-color);
+            background: var(--accent-color);
+            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-            .name {
-                font-size: 2rem;
-            }
-            .countdown-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
             .music-player {
-                width: 70px;
-                height: 70px;
-                bottom: 80px;
-                right: 10px;
+                width: 80px;
+                height: 80px;
+                bottom: 70px;
+                right: 15px;
             }
+            
+            .vinyl-label {
+                font-size: 0.6rem;
+            }
+            
+            .music-controls {
+                bottom: -25px;
+            }
+            
             .music-controls button {
-                width: 35px;
-                height: 35px;
-                font-size: 1.2rem;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
             }
         }
+
+        /* [REST OF YOUR EXISTING STYLES REMAIN THE SAME] */
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Updated Music Player -->
-        <div class="music-player">
+        <!-- Vinyl Record Player -->
+        <div class="music-player" id="musicToggle">
             <audio id="weddingMusic" loop>
                 <source src="https://cdn.jsdelivr.net/gh/yazidulahmad/nikah-musik@main/sumpahdanmati.mp3" type="audio/mpeg">
-                Browser Anda tidak mendukung pemutar audio.
             </audio>
+            <div class="vinyl-container">
+                <div class="player-arm" id="playerArm">
+                    <div class="arm-base"></div>
+                    <div class="arm-rod"></div>
+                    <div class="arm-head"></div>
+                </div>
+                <div class="vinyl" id="vinyl">
+                    <div class="vinyl-label">Yazid & Atin</div>
+                </div>
+            </div>
             <div class="music-controls">
                 <button id="playPauseBtn">▶️</button>
                 <button id="muteBtn">🔊</button>
             </div>
         </div>
 
-        <!-- Cover Section -->
-        <section class="section" id="cover">
-            <div class="section-content">
-                <h1>Undangan Pernikahan</h1>
-                <div class="couple-names">
-                    <div class="name">Ahmad Yazidul Jihad</div>
-                    <div class="parent-names">Bpk. Suhada (Alm) & Ibu Didah Saidah</div>
-                    <div style="font-size: 2rem; margin: 20px 0;">&</div>
-                    <div class="name">Hartini</div>
-                    <div class="parent-names">Bpk. Ece & Ibu Maesaroh</div>
-                </div>
-                <p id="personalGreeting">Kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
-            </div>
-        </section>
-
-        <!-- Pembuka Section -->
-        <section class="section" id="opening">
-            <div class="section-content">
-                <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-                <p id="openingGreeting">Dengan memohos rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
-                <div class="couple-names" style="margin: 20px 0;">
-                    <div class="name">Ahmad Yazidul Jihad</div>
-                    <div class="name">Hartini</div>
-                </div>
-                <p>Semoga dengan ikatan pernikahan ini, kami dapat membangun keluarga yang sakinah, mawaddah, wa rahmah.</p>
-            </div>
-        </section>
-
-        <!-- Isi Undangan Section -->
-        <section class="section" id="invitation">
-            <div class="section-content">
-                <h2>Informasi Acara</h2>
-                <div style="margin: 30px 0;">
-                    <h3>Akad Nikah</h3>
-                    <p>09:30 WIB</p>
-                    <p>24 Desember 2025</p>
-                </div>
-                <div style="margin: 30px 0;">
-                    <h3>Resepsi Pernikahan</h3>
-                    <p>08:00 WIB - Selesai</p>
-                    <p>24 Desember 2025</p>
-                </div>
-                <p id="invitationGreeting">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-            </div>
-        </section>
-
-        <!-- Alamat Section -->
-        <section class="section" id="address">
-            <div class="section-content">
-                <h2>Lokasi Acara</h2>
-                <p>Desa Sukapura, Kec. Rawamerta</p>
-                <p>Kab. Karawang</p>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d107.3822774!3d-6.5017598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDYuMyJTIDEwN8KwMjInNTYuMiJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <a href="https://maps.app.goo.gl/Ve1j7jKGvhfn4yP86?g_st=ic" class="btn" target="_blank">Buka di Google Maps</a>
-            </div>
-        </section>
-
-        <!-- Amplop Digital Section -->
-        <section class="section" id="envelope">
-            <div class="section-content">
-                <h2>Amplop Digital</h2>
-                <div class="envelope">
-                    <p>Doa restu Anda merupakan karunia yang sangat berarti bagi kami.</p>
-                    <p>Jika berkenan, Anda dapat memberikan hadiah secara digital melalui:</p>
-                    <div style="margin: 20px 0;">
-                        <p><strong>Bank Mandiri</strong></p>
-                        <p>1234 5678 9012 3456</p>
-                        <p>a.n. Ahmad Yazidul Jihad</p>
-                    </div>
-                    <p>Terima kasih atas segala kebaikan dan perhatiannya.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Penutup Section -->
-        <section class="section" id="closing">
-            <div class="section-content">
-                <h2>Penutup</h2>
-                <p id="closingGreeting">Atas kehadiran dan doa restunya, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
-                <div style="margin: 30px 0;">
-                    <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                </div>
-                <div class="couple-names" style="margin: 30px 0;">
-                    <div class="name">Yazid & Atin</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Countdown Section -->
-        <section class="section" id="countdown">
-            <div class="section-content">
-                <h2>Menuju Hari Bahagia</h2>
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">Hari</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">Jam</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">Menit</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">Detik</div>
-                    </div>
-                </div>
-                <p>24 Desember 2025</p>
-            </div>
-        </section>
-
-        <!-- Ucapan Section -->
-        <section class="section" id="wishes">
-            <div class="section-content">
-                <h2>Ucapan & Doa</h2>
-                <p>Berikan ucapan dan doa untuk kami</p>
-                
-                <div class="guest-form">
-                    <div class="form-group">
-                        <label for="name">Nama Anda</label>
-                        <input type="text" id="name" placeholder="Nama Anda">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Ucapan & Doa</label>
-                        <textarea id="message" placeholder="Tulis ucapan dan doa untuk kami"></textarea>
-                    </div>
-                    <button class="btn" id="sendWishesBtn">Kirim Ucapan</button>
-                </div>
-                
-                <div class="messages-container" id="messages-container">
-                    <!-- Messages will appear here -->
-                </div>
-            </div>
-        </section>
-
-        <div class="navigation" id="navigation">
-            <!-- Navigation dots will be added here by JavaScript -->
-        </div>
+        <!-- [ALL YOUR EXISTING HTML SECTIONS REMAIN THE SAME] -->
     </div>
 
-    <!-- Firebase SDK -->
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
-        import { getDatabase, ref, push, onValue, serverTimestamp, orderByChild } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+        // [YOUR EXISTING FIREBASE AND OTHER FUNCTIONS REMAIN THE SAME UNTIL setupMusicPlayer()]
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDEcudJg0ZYcsc--zyOtEdJuoEyWctPeG4",
-            authDomain: "pernikahan-yazid-atin.firebaseapp.com",
-            databaseURL: "https://pernikahan-yazid-atin-default-rtdb.firebaseio.com",
-            projectId: "pernikahan-yazid-atin",
-            storageBucket: "pernikahan-yazid-atin.firebasestorage.app",
-            messagingSenderId: "522239828633",
-            appId: "1:522239828633:web:a29153664cf603fd448e08",
-            measurementId: "G-VSZC802Y87"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const database = getDatabase(app);
-
-        // Fungsi untuk membuat dekorasi bunga
-        function createFlowers() {
-            const flowers = ['🌸', '🌹', '🌺', '🌻', '☁️', '🏵️', '💐', '🤍'];
-            const container = document.querySelector('.container');
-            
-            for (let i = 0; i < 20; i++) {
-                const flower = document.createElement('div');
-                flower.className = 'flower';
-                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-                
-                // Random position
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const delay = Math.random() * 5;
-                const duration = 3 + Math.random() * 7;
-                
-                flower.style.left = `${left}%`;
-                flower.style.top = `${top}%`;
-                flower.style.animationDelay = `${delay}s`;
-                flower.style.animationDuration = `${duration}s`;
-                
-                container.appendChild(flower);
-            }
-        }
-
-        // Countdown timer
-        function updateCountdown() {
-            const weddingDate = new Date('December 24, 2025 08:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-
-        // Scroll to section
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Create navigation dots
-        function createNavigation() {
-            const sections = document.querySelectorAll('.section');
-            const navContainer = document.getElementById('navigation');
-            
-            sections.forEach((section, index) => {
-                const dot = document.createElement('div');
-                dot.className = 'nav-dot';
-                dot.onclick = () => scrollToSection(section.id);
-                navContainer.appendChild(dot);
-            });
-            
-            // Set first dot as active
-            navContainer.children[0].classList.add('active');
-        }
-
-        // Handle scroll to update active dot
-        function handleScroll() {
-            const sections = document.querySelectorAll('.section');
-            const navDots = document.querySelectorAll('.nav-dot');
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop - sectionHeight / 3) {
-                    currentSection = section.id;
-                }
-            });
-            
-            navDots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.onclick.toString().includes(currentSection)) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-
-        // Fungsi untuk mendapatkan nama dari URL
-        function getGuestNameFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return decodeURIComponent(urlParams.get('nama') || 'Tamu Undangan');
-        }
-
-        // Fungsi untuk menyimpan data tamu
-        function saveGuestData(guestName) {
-            const guestsRef = ref(database, 'guests');
-            push(guestsRef, {
-                name: guestName,
-                timestamp: serverTimestamp(),
-                viewed: true
-            });
-        }
-
-        // Fungsi untuk mempersonalisasi undangan
-        function personalizeInvitation() {
-            const guestName = getGuestNameFromURL();
-            
-            // Personalisasi semua bagian yang diperlukan
-            document.getElementById('personalGreeting').textContent = 
-                `Kepada Yth. ${guestName}, kami mengundang Anda untuk hadir dalam acara pernikahan kami`;
-            
-            document.getElementById('openingGreeting').textContent = 
-                `Kepada Yth. ${guestName}, dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:`;
-            
-            document.getElementById('invitationGreeting').textContent = 
-                `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.`;
-            
-            document.getElementById('closingGreeting').textContent = 
-                `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
-            
-            // Simpan data tamu ke Firebase
-            saveGuestData(guestName);
-        }
-
-        // Fungsi untuk mengirim ucapan
-        function sendWishes() {
-            const name = document.getElementById('name').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            if (name && message) {
-                const wishesRef = ref(database, 'wishes');
-                push(wishesRef, {
-                    name: name,
-                    message: message,
-                    timestamp: serverTimestamp()
-                }).then(() => {
-                    document.getElementById('name').value = '';
-                    document.getElementById('message').value = '';
-                    alert('Ucapan Anda telah terkirim! Terima kasih.');
-                }).catch(error => {
-                    console.error('Error sending message:', error);
-                    alert('Maaf, terjadi kesalahan. Silakan coba lagi.');
-                });
-            } else {
-                alert('Silakan isi nama dan ucapan Anda');
-            }
-        }
-
-        // Fungsi untuk menampilkan ucapan
-        function displayWishes() {
-            const messagesContainer = document.getElementById('messages-container');
-            const wishesRef = ref(database, 'wishes');
-            
-            onValue(wishesRef, (snapshot) => {
-                messagesContainer.innerHTML = '';
-                
-                snapshot.forEach((childSnapshot) => {
-                    const wish = childSnapshot.val();
-                    const messageDiv = document.createElement('div');
-                    messageDiv.className = 'message';
-                    
-                    // Format tanggal
-                    const date = wish.timestamp ? new Date(wish.timestamp) : new Date();
-                    const formattedDate = date.toLocaleDateString('id-ID', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    });
-                    
-                    messageDiv.innerHTML = `
-                        <div class="message-name">${wish.name || 'Tamu'}</div>
-                        <div class="message-text">${wish.message}</div>
-                        <div class="message-time">${formattedDate}</div>
-                    `;
-                    
-                    messagesContainer.appendChild(messageDiv);
-                });
-                
-                // Scroll ke bawah
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            });
-        }
-
-        // Updated Music Player Control
+        // Vinyl Player Control
         function setupMusicPlayer() {
             const music = document.getElementById('weddingMusic');
+            const vinyl = document.getElementById('vinyl');
+            const playerArm = document.getElementById('playerArm');
             const playPauseBtn = document.getElementById('playPauseBtn');
             const muteBtn = document.getElementById('muteBtn');
             
@@ -772,8 +264,9 @@
             const playMusic = () => {
                 music.play()
                     .then(() => {
+                        vinyl.classList.add('active');
+                        playerArm.classList.add('active');
                         playPauseBtn.textContent = '⏸️';
-                        playPauseBtn.classList.add('active');
                     })
                     .catch(e => console.log("Autoplay prevented:", e));
                 
@@ -786,57 +279,43 @@
             document.addEventListener('touchstart', playMusic, { once: true });
             
             // Play/Pause toggle
-            playPauseBtn.addEventListener('click', () => {
+            playPauseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 if (music.paused) {
                     music.play();
+                    vinyl.classList.add('active');
+                    playerArm.classList.add('active');
                     playPauseBtn.textContent = '⏸️';
-                    playPauseBtn.classList.add('active');
                 } else {
                     music.pause();
+                    vinyl.classList.remove('active');
+                    playerArm.classList.remove('active');
                     playPauseBtn.textContent = '▶️';
-                    playPauseBtn.classList.remove('active');
                 }
             });
             
             // Mute toggle
-            muteBtn.addEventListener('click', () => {
+            muteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 music.muted = !music.muted;
                 muteBtn.textContent = music.muted ? '🔇' : '🔊';
-                muteBtn.classList.toggle('active', music.muted);
             });
             
             // Visual feedback when music is playing
             music.addEventListener('play', () => {
+                vinyl.classList.add('active');
+                playerArm.classList.add('active');
                 playPauseBtn.textContent = '⏸️';
-                playPauseBtn.classList.add('active');
             });
             
             music.addEventListener('pause', () => {
+                vinyl.classList.remove('active');
+                playerArm.classList.remove('active');
                 playPauseBtn.textContent = '▶️';
-                playPauseBtn.classList.remove('active');
             });
         }
 
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            createFlowers();
-            createNavigation();
-            displayWishes();
-            setupMusicPlayer();
-            
-            // Personalisasi undangan saat pertama kali dimuat
-            personalizeInvitation();
-            
-            // Update countdown every second
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-            
-            // Handle scroll events
-            window.addEventListener('scroll', handleScroll);
-            
-            // Event listener untuk form ucapan
-            document.getElementById('sendWishesBtn').addEventListener('click', sendWishes);
-        });
+        // [REST OF YOUR JAVASCRIPT REMAINS THE SAME]
     </script>
 </body>
 </html>
