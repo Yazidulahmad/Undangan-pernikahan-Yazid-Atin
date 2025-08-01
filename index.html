@@ -11,7 +11,7 @@
             --secondary-color: #f7d794;
             --accent-color: #f78fb3;
             --text-color: #333;
-            --light-color: #ffe6e6; /* Changed to pink background */
+            --light-color: #ffe6e6; /* Pink background color */
         }
 
         * {
@@ -23,7 +23,7 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--text-color);
-            background-color: var(--light-color); /* Pink background applied */
+            background-color: var(--light-color);
             overflow-x: hidden;
         }
 
@@ -353,7 +353,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Cover Section -->
+        <!-- Cover Section - Tanpa form konfirmasi -->
         <section class="section" id="cover">
             <div class="section-content">
                 <h1>Undangan Pernikahan</h1>
@@ -365,10 +365,7 @@
                     <div class="parent-names">Putri dari Bpk. Ece & Ibu Maesaroh</div>
                 </div>
                 <p id="personalGreeting">Kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
-                <div class="guest-input" style="margin-top: 20px;">
-                    <input type="text" id="guestName" placeholder="Masukkan nama Anda" style="padding: 10px; border-radius: 50px; border: 1px solid #ddd; width: 80%; max-width: 300px;">
-                    <button class="btn" onclick="personalizeInvitation()">Konfirmasi Kehadiran</button>
-                </div>
+                <!-- Form konfirmasi dihapus -->
             </div>
         </section>
 
@@ -635,13 +632,41 @@
             });
         }
 
+        // Fungsi untuk mendapatkan nama dari URL
+        function getGuestNameFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return decodeURIComponent(urlParams.get('nama') || 'Tamu Undangan');
+        }
+
         // Fungsi untuk menyimpan data tamu
         function saveGuestData(guestName) {
             const guestsRef = ref(database, 'guests');
             push(guestsRef, {
                 name: guestName,
-                timestamp: serverTimestamp()
+                timestamp: serverTimestamp(),
+                viewed: true
             });
+        }
+
+        // Fungsi untuk mempersonalisasi undangan
+        function personalizeInvitation() {
+            const guestName = getGuestNameFromURL();
+            
+            // Personalisasi semua bagian yang diperlukan
+            document.getElementById('personalGreeting').textContent = 
+                `Kepada Yth. ${guestName}, kami mengundang Anda untuk hadir dalam acara pernikahan kami`;
+            
+            document.getElementById('openingGreeting').textContent = 
+                `Kepada Yth. ${guestName}, dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:`;
+            
+            document.getElementById('invitationGreeting').textContent = 
+                `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.`;
+            
+            document.getElementById('closingGreeting').textContent = 
+                `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
+            
+            // Simpan data tamu ke Firebase
+            saveGuestData(guestName);
         }
 
         // Fungsi untuk mengirim ucapan
@@ -705,36 +730,14 @@
             });
         }
 
-        // Fungsi personalisasi undangan
-        function personalizeInvitation() {
-            const guestName = document.getElementById('guestName').value.trim();
-            if (guestName) {
-                saveGuestData(guestName);
-                
-                // Personalisasi ucapan di berbagai section
-                document.getElementById('personalGreeting').textContent = 
-                    `Kepada Yth. ${guestName}, kami mengundang Anda untuk hadir dalam acara pernikahan kami`;
-                
-                document.getElementById('openingGreeting').textContent = 
-                    `Kepada Yth. ${guestName}, dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:`;
-                
-                document.getElementById('invitationGreeting').textContent = 
-                    `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.`;
-                
-                document.getElementById('closingGreeting').textContent = 
-                    `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
-                
-                alert(`Terima kasih ${guestName}, kami tunggu kehadiran Anda pada hari pernikahan kami!`);
-            } else {
-                alert('Silakan masukkan nama Anda terlebih dahulu');
-            }
-        }
-
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             createFlowers();
             createNavigation();
             displayWishes();
+            
+            // Personalisasi undangan saat pertama kali dimuat
+            personalizeInvitation();
             
             // Update countdown every second
             updateCountdown();
@@ -745,19 +748,7 @@
             
             // Event listener untuk form ucapan
             document.getElementById('sendWishesBtn').addEventListener('click', sendWishes);
-            
-            // Event listener untuk form tamu
-            const guestForm = document.querySelector('.guest-input');
-            if (guestForm) {
-                guestForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    personalizeInvitation();
-                });
-            }
         });
-
-        // Fungsi global untuk dipanggil dari HTML
-        window.personalizeInvitation = personalizeInvitation;
     </script>
 </body>
 </html>
