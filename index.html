@@ -316,31 +316,11 @@
             bottom: 60px;
             right: 20px;
             z-index: 100;
-            background-color: rgba(139, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-        }
-
-        .music-toggle {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .music-toggle:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            width: 300px;
+            height: 120px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 768px) {
@@ -359,6 +339,8 @@
                 font-size: 1.5rem;
             }
             .music-player {
+                width: 250px;
+                height: 100px;
                 bottom: 80px;
                 right: 10px;
             }
@@ -367,12 +349,16 @@
 </head>
 <body>
     <div class="container">
-        <!-- Audio Player -->
+        <!-- SoundCloud Music Player -->
         <div class="music-player">
-            <audio id="weddingMusic" loop>
-                <source src="https://jumpshare.com/s/QEsYieCMH4BxbGma3SGu" type="audio/mpeg">
-            </audio>
-            <button class="music-toggle" id="musicToggle">🎵</button>
+            <iframe 
+                width="100%" 
+                height="100%" 
+                scrolling="no" 
+                frameborder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1785884956&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+            </iframe>
         </div>
 
         <!-- Cover Section -->
@@ -728,42 +714,11 @@
             });
         }
 
-        // Fungsi untuk mengontrol musik
-        function setupMusicPlayer() {
-            const musicToggle = document.getElementById('musicToggle');
-            const audio = document.getElementById('weddingMusic');
-            
-            // Cek preferensi autoplay
-            audio.volume = 0.3; // Set volume rendah
-            
-            musicToggle.addEventListener('click', () => {
-                if (audio.paused) {
-                    audio.play();
-                    musicToggle.textContent = '🔊';
-                } else {
-                    audio.pause();
-                    musicToggle.textContent = '🔇';
-                }
-            });
-            
-            // Untuk mobile, kita perlu memulai audio setelah interaksi pengguna
-            document.body.addEventListener('click', function initAudio() {
-                audio.play().then(() => {
-                    audio.pause(); // Segera pause setelah play untuk memenuhi kebijakan autoplay
-                    musicToggle.textContent = '🔇';
-                }).catch(error => {
-                    console.log('Autoplay prevented:', error);
-                });
-                document.body.removeEventListener('click', initAudio);
-            });
-        }
-
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             createFlowers();
             createNavigation();
             displayWishes();
-            setupMusicPlayer();
             
             // Personalisasi undangan saat pertama kali dimuat
             personalizeInvitation();
@@ -777,6 +732,11 @@
             
             // Event listener untuk form ucapan
             document.getElementById('sendWishesBtn').addEventListener('click', sendWishes);
+
+            // Load SoundCloud widget script
+            const script = document.createElement('script');
+            script.src = 'https://w.soundcloud.com/player/api.js';
+            document.body.appendChild(script);
         });
     </script>
 </body>
