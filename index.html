@@ -317,10 +317,49 @@
             right: 20px;
             z-index: 100;
             width: 300px;
-            height: 120px;
+            background-color: rgba(139, 0, 0, 0.7);
             border-radius: 12px;
-            overflow: hidden;
+            padding: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--accent-color);
+        }
+
+        .music-player h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .music-controls button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .music-controls button:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .volume-control {
+            width: 100px;
+            margin: 0 10px;
         }
 
         @media (max-width: 768px) {
@@ -340,7 +379,6 @@
             }
             .music-player {
                 width: 250px;
-                height: 100px;
                 bottom: 80px;
                 right: 10px;
             }
@@ -349,16 +387,18 @@
 </head>
 <body>
     <div class="container">
-        <!-- SoundCloud Music Player -->
+        <!-- Music Player -->
         <div class="music-player">
-            <iframe 
-                width="100%" 
-                height="100%" 
-                scrolling="no" 
-                frameborder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1785884956&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
-            </iframe>
+            <h3>Musik Pernikahan</h3>
+            <audio id="weddingMusic" loop>
+                <source src="https://drive.google.com/uc?export=download&id=1lnNpuljhX0sIX9LjfAFtF6-Q7hUd6fsD" type="audio/mpeg">
+                Browser Anda tidak mendukung pemutar audio.
+            </audio>
+            <div class="music-controls">
+                <button id="playPauseBtn">▶️</button>
+                <input type="range" id="volumeControl" class="volume-control" min="0" max="1" step="0.1" value="0.5">
+                <button id="muteBtn">🔊</button>
+            </div>
         </div>
 
         <!-- Cover Section -->
@@ -380,7 +420,7 @@
         <section class="section" id="opening">
             <div class="section-content">
                 <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-                <p id="openingGreeting">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
+                <p id="openingGreeting">Dengan memohos rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
                 <div class="couple-names" style="margin: 20px 0;">
                     <div class="name">Ahmad Yazidul Jihad</div>
                     <div class="name">Hartini</div>
@@ -414,7 +454,7 @@
                 <p>Desa Sukapura, Kec. Rawamerta</p>
                 <p>Kab. Karawang</p>
                 <div class="map-container">
-                    <iframe src="https://maps.app.goo.gl/Ve1j7jKGvhfn4yP86?g_st=ic" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d107.3822774!3d-6.5017598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDYuMyJTIDEwN8KwMjInNTYuMiJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <a href="https://maps.app.goo.gl/Ve1j7jKGvhfn4yP86?g_st=ic" class="btn" target="_blank">Buka di Google Maps</a>
             </div>
@@ -714,11 +754,65 @@
             });
         }
 
+        // Music Player Control
+        function setupMusicPlayer() {
+            const music = document.getElementById('weddingMusic');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const volumeControl = document.getElementById('volumeControl');
+            const muteBtn = document.getElementById('muteBtn');
+            
+            // Auto play music (with user interaction requirement)
+            document.addEventListener('click', function initMusic() {
+                // Try to play music
+                music.volume = 0.5;
+                music.play().then(() => {
+                    playPauseBtn.textContent = '⏸️';
+                }).catch(error => {
+                    console.log('Auto-play prevented:', error);
+                    playPauseBtn.textContent = '▶️';
+                });
+                
+                // Remove this event listener after first interaction
+                document.removeEventListener('click', initMusic);
+            }, { once: true });
+            
+            // Play/Pause button
+            playPauseBtn.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play();
+                    playPauseBtn.textContent = '⏸️';
+                } else {
+                    music.pause();
+                    playPauseBtn.textContent = '▶️';
+                }
+            });
+            
+            // Volume control
+            volumeControl.addEventListener('input', () => {
+                music.volume = volumeControl.value;
+                if (music.volume > 0) {
+                    music.muted = false;
+                    muteBtn.textContent = music.muted ? '🔇' : '🔊';
+                }
+            });
+            
+            // Mute button
+            muteBtn.addEventListener('click', () => {
+                music.muted = !music.muted;
+                muteBtn.textContent = music.muted ? '🔇' : '🔊';
+                if (!music.muted && music.volume === 0) {
+                    music.volume = 0.5;
+                    volumeControl.value = 0.5;
+                }
+            });
+        }
+
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             createFlowers();
             createNavigation();
             displayWishes();
+            setupMusicPlayer();
             
             // Personalisasi undangan saat pertama kali dimuat
             personalizeInvitation();
@@ -732,11 +826,6 @@
             
             // Event listener untuk form ucapan
             document.getElementById('sendWishesBtn').addEventListener('click', sendWishes);
-
-            // Load SoundCloud widget script
-            const script = document.createElement('script');
-            script.src = 'https://w.soundcloud.com/player/api.js';
-            document.body.appendChild(script);
         });
     </script>
 </body>
