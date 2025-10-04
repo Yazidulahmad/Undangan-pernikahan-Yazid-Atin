@@ -1,899 +1,140 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Yazid & Atin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Undangan Pernikahan Ahmad Yazidul Jihad & Hartini</title>
     <style>
-        :root {
-            --primary-color: #8B0000; /* Dark red */
-            --secondary-color: #A52A2A; /* Brownish red */
-            --accent-color: #FF6347; /* Tomato red */
-            --text-color: #FFF5EE; /* Light cream */
-            --light-color: #1A0000; /* Very dark red */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-color);
-            background-color: var(--light-color);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 100%;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section {
-            min-height: 100vh;
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
-
-        .section-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            width: 100%;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Great Vibes', cursive;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-        }
-
-        h3 {
-            font-size: 2rem;
-        }
-
-        p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-
         .couple-names {
-            margin: 30px 0;
-            padding: 20px;
-            border-top: 1px solid var(--accent-color);
-            border-bottom: 1px solid var(--accent-color);
-        }
-
-        .name {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
-            margin: 10px 0;
-            color: var(--accent-color);
-        }
-
-        .parent-names {
-            font-size: 1rem;
-            margin: 5px 0;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            margin: 0 10px;
             text-align: center;
+            font-family: 'Great Vibes', cursive;
+            color: #8B4513;
+            margin: 20px 0;
         }
-
-        .countdown-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            background-color: var(--light-color);
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--accent-color);
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-
-        .envelope {
-            background-color: var(--secondary-color);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.5s ease;
-            border: 1px solid var(--accent-color);
-        }
-
-        .envelope:hover {
-            transform: rotateY(10deg) rotateX(5deg);
-        }
-
-        .envelope::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 10px 10px 0 0;
-        }
-
-        .guest-form {
-            margin-top: 30px;
-            background-color: rgba(139, 0, 0, 0.3);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--accent-color);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--accent-color);
-            border-radius: 5px;
-            font-family: inherit;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-        }
-
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        .messages-container {
-            margin-top: 30px;
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: rgba(139, 0, 0, 0.3);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--accent-color);
-        }
-
-        .message {
-            padding: 10px;
+        .groom-name {
+            font-size: 2.5em;
             margin-bottom: 10px;
-            border-bottom: 1px solid var(--accent-color);
-            text-align: left;
         }
-
-        .message-name {
-            font-weight: 600;
-            color: var(--accent-color);
+        .and-symbol {
+            font-size: 1.8em;
+            margin: 10px 0;
         }
-
-        .message-text {
-            margin-top: 5px;
-        }
-
-        .message-time {
-            font-size: 0.8rem;
-            color: #ccc;
-            margin-top: 5px;
-        }
-
-        .map-container {
-            margin: 30px 0;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--accent-color);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .navigation {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 100;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 99, 71, 0.5);
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-dot.active {
-            background-color: var(--accent-color);
-            transform: scale(1.3);
-        }
-
-        /* UPDATED MUSIC PLAYER STYLES - Cassette Disk Design */
-        .music-player {
-            position: fixed;
-            bottom: 60px;
-            right: 20px;
-            z-index: 100;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #8B0000 0%, #1A0000 100%);
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            border: 2px solid var(--accent-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .music-player:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.7);
-        }
-
-        .music-player::before {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1A0000 0%, #8B0000 100%);
-            border: 2px solid var(--accent-color);
-        }
-
-        .music-player::after {
-            content: '';
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8B0000 0%, #1A0000 100%);
-            border: 2px solid var(--accent-color);
-        }
-
-        .cassette-hole {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: var(--light-color);
-            border-radius: 50%;
-            border: 1px solid var(--accent-color);
-        }
-
-        .cassette-hole:nth-child(1) {
-            top: 20px;
-            left: 20px;
-        }
-
-        .cassette-hole:nth-child(2) {
-            top: 20px;
-            right: 20px;
-        }
-
-        .cassette-hole:nth-child(3) {
-            bottom: 20px;
-            left: 20px;
-        }
-
-        .cassette-hole:nth-child(4) {
-            bottom: 20px;
-            right: 20px;
-        }
-
-        .play-icon {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-left: 16px solid var(--accent-color);
-            border-bottom: 10px solid transparent;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .music-player.playing .play-icon {
-            transform: translateX(2px);
-            border-left: 6px solid var(--accent-color);
-            border-right: 6px solid var(--accent-color);
-            height: 16px;
-            width: 4px;
-            border-top: none;
-            border-bottom: none;
-        }
-
-        .music-player.playing::before {
-            animation: rotateDisk 3s linear infinite;
-        }
-
-        @keyframes rotateDisk {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-            .name {
-                font-size: 2rem;
-            }
-            .countdown-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            /* Responsive music player */
-            .music-player {
-                width: 70px;
-                height: 70px;
-                bottom: 80px;
-                right: 10px;
-            }
-            
-            .music-player::before {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .music-player::after {
-                width: 25px;
-                height: 25px;
-            }
-            
-            .cassette-hole {
-                width: 8px;
-                height: 8px;
-            }
-            
-            .cassette-hole:nth-child(1),
-            .cassette-hole:nth-child(2) {
-                top: 15px;
-            }
-            
-            .cassette-hole:nth-child(3),
-            .cassette-hole:nth-child(4) {
-                bottom: 15px;
-            }
-            
-            .cassette-hole:nth-child(1),
-            .cassette-hole:nth-child(3) {
-                left: 15px;
-            }
-            
-            .cassette-hole:nth-child(2),
-            .cassette-hole:nth-child(4) {
-                right: 15px;
-            }
-            
-            .play-icon {
-                border-top: 8px solid transparent;
-                border-left: 12px solid var(--accent-color);
-                border-bottom: 8px solid transparent;
-            }
-            
-            .music-player.playing .play-icon {
-                border-left: 5px solid var(--accent-color);
-                border-right: 5px solid var(--accent-color);
-                height: 12px;
-                width: 3px;
-            }
+        .bride-name {
+            font-size: 2.5em;
+            margin-top: 10px;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <!-- Updated Cassette-style Music Player -->
-        <div class="music-player" id="musicPlayer">
-            <div class="cassette-hole"></div>
-            <div class="cassette-hole"></div>
-            <div class="cassette-hole"></div>
-            <div class="cassette-hole"></div>
-            <div class="play-icon"></div>
-            <audio id="weddingMusic" loop>
-                <source src="https://cdn.jsdelivr.net/gh/yazidulahmad/nikah-musik@main/sumpahdanmati.mp3" type="audio/mpeg">
-                Browser Anda tidak mendukung pemutar audio.
-            </audio>
+<body class="wp-singular post-template post-template-elementor_canvas single single-post postid-308818 single-format-standard wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-12 elementor-page elementor-page-308818 e-ua-blink e-ua-chrome e-ua-webkit" data-elementor-device-mode="mobile" style="touch-action: auto; overflow: unset;">
+    <div data-elementor-type="wp-post" data-elementor-id="308818" class="elementor-elementor-308818" data-elementor-settings='{"ma_cmc_init_wait": "chen","no"}' data-elementor-post-type="post">
+        
+        <!-- Section Nama Pengantin -->
+        <div class="elementor-element elementor-element-195319d e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="195319d" data-element_type="container" id="home">
+            <div class="e-con-inner">
+                <div class="elementor-element elementor-element-0c94639 e-flex e-con-boxed e-con e-child" data-id="0c94639" data-element_type="container" data-settings='{"background_background": "gradient"}'>
+                    <div class="e-con-inner">
+                        <div class="couple-names">
+                            <div class="groom-name">Ahmad Yazidul Jihad</div>
+                            <div class="and-symbol">&</div>
+                            <div class="bride-name">Hartini</div>
+                        </div>
+                        <div class="elementor-element elementor-element-4345498 e-flex e-con-boxed e-con e-child" data-id="4345498" data-element_type="container" data-settings='{"background_background": "classic"}'>
+                            <div class="e-con-inner">
+                                <div class="elementor-element elementor-element-7ad2dd4 e-flex e-con-boxed e-con e-child" data-id="7ad2dd4" data-element_type="container" data-settings='{"shape_divider_bottom": "mountains"}'>
+                                    <div class="e-con-inner">
+                                        <div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="false"></div>
+                                        <div class="elementor-element elementor-element-87e1782 elementor-widget elementor-widget-spacer" data-id="87e1782" data-element_type="widget" data-widget_type="spacer.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-spacer">
+                                                    <div class="elementor-spacer-inner"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Cover Section -->
-        <section class="section" id="cover" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h1>Undangan Pernikahan</h1>
-                <div class="couple-names">
-                    <div class="name">Ahmad Yazidul Jihad</div>
-                    <div class="parent-names">Bpk. Suhada (Alm) & Ibu Didah Saidah</div>
-                    <div style="font-size: 2rem; margin: 20px 0;">&</div>
-                    <div class="name">Hartini</div>
-                    <div class="parent-names">Bpk. Ece & Ibu Maesaroh</div>
-                </div>
-                <p id="personalGreeting">Kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
-            </div>
-        </section>
+        <div class="elementor-element elementor-element-6a515a3 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="6a515a3" data-element_type="container" id="Acera" data-settings='{"background_background": "classic"}'></div>
+        
+        <div class="elementor-element elementor-element-Scal4ed e-flex e-con-boxed e-con e-parent" data-id="Scal4ed" data-element_type="container" data-settings='{"background_background": "classic"}'></div>
 
-        <!-- Pembuka Section -->
-        <section class="section" id="opening" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-                <p id="openingGreeting">Dengan memohos rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
-                <div class="couple-names" style="margin: 20px 0;">
-                    <div class="name">Ahmad Yazidul Jihad</div>
-                    <div class="name">Hartini</div>
-                </div>
-                <p>Semoga dengan ikatan pernikahan ini, kami dapat membangun keluarga yang sakinah, mawaddah, wa rahmah.</p>
-            </div>
-        </section>
+        <div class="elementor-element elementor-element-8f793d7 e-flex e-con-boxed e-con e-parent" data-id="8f793d7" data-element_type="container" data-settings='{"background_background": "classic"}'></div>
 
-        <!-- Isi Undangan Section -->
-        <section class="section" id="invitation" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h2>Informasi Acara</h2>
-                <div style="margin: 30px 0;">
-                    <h3>Akad Nikah</h3>
-                    <p>09:30 WIB</p>
-                    <p>24 Desember 2025</p>
-                </div>
-                <div style="margin: 30px 0;">
-                    <h3>Resepsi Pernikahan</h3>
-                    <p>08:00 WIB - Selesai</p>
-                    <p>24 Desember 2025</p>
-                </div>
-                <p id="invitationGreeting">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-            </div>
-        </section>
+        <div class="elementor-element elementor-element-fbf998f e-flex e-con-boxed e-con e-parent" data-id="fbf998f" data-element_type="container" id="Uzapan"></div>
 
-        <!-- Alamat Section -->
-        <section class="section" id="address" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h2>Lokasi Acara</h2>
-                <p>Desa Sukapura, Kec. Rawamerta</p>
-                <p>Kab. Karawang</p>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d107.3822774!3d-6.5017598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDYuMyJTIDEwN8KwMjInNTYuMiJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <a href="https://maps.app.goo.gl/Ve1j7jKGvhfn4yP86?g_st=ic" class="btn" target="_blank">Buka di Google Maps</a>
-            </div>
-        </section>
+        <div class="elementor-element elementor-element-83a658c e-flex e-con-boxed e-con e-parent" data-id="83a658c" data-element_type="container"></div>
 
-        <!-- Amplop Digital Section -->
-        <section class="section" id="envelope" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h2>Amplop Digital</h2>
-                <div class="envelope">
-                    <p>Doa restu Anda merupakan karunia yang sangat berarti bagi kami.</p>
-                    <p>Jika berkenan, Anda dapat memberikan hadiah secara digital melalui:</p>
-                    <div style="margin: 20px 0;">
-                        <p><strong>Bank Mandiri</strong></p>
-                        <p>1234 5678 9012 3456</p>
-                        <p>a.n. Ahmad Yazidul Jihad</p>
-                    </div>
-                    <p>Terima kasih atas segala kebaikan dan perhatiannya.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Penutup Section -->
-        <section class="section" id="closing" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h2>Penutup</h2>
-                <p id="closingGreeting">Atas kehadiran dan doa restunya, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
-                <div style="margin: 30px 0;">
-                    <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                </div>
-                <div class="couple-names" style="margin: 30px 0;">
-                    <div class="name">Yazid & Atin</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Countdown Section -->
-        <section class="section" id="countdown" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h2>Menuju Hari Bahagia</h2>
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">Hari</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">Jam</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">Menit</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">Detik</div>
-                    </div>
-                </div>
-                <p>24 Desember 2025</p>
-            </div>
-        </section>
-
-        <!-- Ucapan Section -->
-        <section class="section" id="wishes" style="background-image: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif')">
-            <div class="section-content">
-                <h2>Ucapan & Doa</h2>
-                <p>Berikan ucapan dan doa untuk kami</p>
-                
-                <div class="guest-form">
-                    <div class="form-group">
-                        <label for="name">Nama Anda</label>
-                        <input type="text" id="name" placeholder="Nama Anda">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Ucapan & Doa</label>
-                        <textarea id="message" placeholder="Tulis ucapan dan doa untuk kami"></textarea>
-                    </div>
-                    <button class="btn" id="sendWishesBtn">Kirim Ucapan</button>
-                </div>
-                
-                <div class="messages-container" id="messages-container">
-                    <!-- Messages will appear here -->
-                </div>
-            </div>
-        </section>
-
-        <div class="navigation" id="navigation">
-            <!-- Navigation dots will be added here by JavaScript -->
-        </div>
+        <div class="elementor-element elementor-element-89d4edd e-flex e-con-boxed e-con e-parent" data-id="89d4edd" data-element_type="container"></div>
     </div>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
-        import { getDatabase, ref, push, onValue, serverTimestamp, orderByChild } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+    <script type="speculationrules"></script>
+    <script></script>
+    <script></script>
+    
+    <!-- jQuery and Core Scripts -->
+    <script src="https://ideainvitation.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" id="jquery-ui-core-js"></script>
+    <script src="https://ideainvitation.com/wp-includes/js/dist/vendor/react.min.js?ver=18.3.1" id="react-js"></script>
+    <script src="https://ideainvitation.com/wp-includes/js/dist/vendor/react-dom.min.js?ver=18.3.1" id="react-dom-js"></script>
+    <script src="https://ideainvitation.com/wp-includes/js/dist/hooks.min.js?ver=4463a3m" id="wp-hooks-js"></script>
+    <script src="https://ideainvitation.com/wp-includes/js/dist/i18n.min.js?ver=5e58beh" id="wp-i18n-js"></script>
+    <script id="wp-i18n-js-after">wp.i18n.setLocaleData({}, 'it');</script>
+    <script src="https://ideainvitation.com/wp-includes/js/dist/dom-ready.min.js?ver=5e51a64" id="wp-dom-ready-js"></script>
+    <script src="https://ideainvitation.com/wp-includes/js/dist/elements.min.js?ver=adeeea4" id="wp-element-js"></script>
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDEcudJg0ZYcsc--zyOtEdJuoEyWctPeG4",
-            authDomain: "pernikahan-yazid-atin.firebaseapp.com",
-            databaseURL: "https://pernikahan-yazid-atin-default-rtdb.firebaseio.com",
-            projectId: "pernikahan-yazid-atin",
-            storageBucket: "pernikahan-yazid-atin.firebasestorage.app",
-            messagingSenderId: "522239828633",
-            appId: "1:522239828633:web:a29153664cf603fd448e08",
-            measurementId: "G-VSZC802Y87"
-        };
+    <!-- Elementor Core Scripts -->
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.39.2" id="elementor-webpack-runtime-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.39.2" id="elementor-frontend-modules-js"></script>
+    <script id="elementor-frontend-js-before"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.39.2" id="elementor-frontend-js"></script>
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const database = getDatabase(app);
+    <!-- Elementor Pro Scripts -->
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor-pro/assets/js/newbook-pro.runtime.min.js?ver=3.38_8" id="elementor-pro-methods-runtime-js"></script>
+    <script id="elementor-pro-frontend-js-before">//</script>
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.38_8" id="elementor-pro-frontend-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor-pro/assets/js/elements-handler.min.js?ver=3.38_8" id="pro-elements-handlers-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor-pro/assets/js/cooltrigger/cooltrigger.min.js?ver=2.10.23" id="go-cooltrigger-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/elementor-pro/assets/js/main/frontend-toolib.min.js?ver=2.10.23" id="go-elements-toolib-js"></script>
 
-        // Countdown timer
-        function updateCountdown() {
-            const weddingDate = new Date('December 24, 2025 08:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
+    <!-- Happy Elementor Addons -->
+    <script src="https://ideainvitation.com/wp-content/plugins/happy-elementor-addons/assets/js/extension-reading-progress-bar.min.js?ver=3.28_1" id="happy-reading-progress-bar-js"></script>
+    <script id="happy-elementor-addons-js-extra">//</script>
+    <script src="https://ideainvitation.com/wp-content/plugins/happy-elementor-addons/assets/js/happy-addons.min.js?ver=3.28_1" id="happy-elementor-addons-js"></script>
 
-        // Scroll to section
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
+    <!-- MaddingPress Scripts -->
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/assets/js/modules/edit-ukit.js?ver=3.15_1" id="edit-ukit-js"></script>
+    <script id="maddingpress-wap-js-extra">//</script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/assets/js/mdb.min.js?ver=3.2.1_1" id="maddingpress-wap-js"></script>
+    <script id="kf-in-kit-js-extra">//</script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/assets/js/emmet-form.js?ver=3.2.1_1" id="kf-in-kit-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/assets/js/wbp-supper.min.js" id="wdp-supper-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/assets/js/gp-code.js" id="maddingpress-wp-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/assets/js/evad-scripts.min.js?ver=3.2.1_1" id="evad-main-script-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/assets/js/likemsk.min.js?ver=3.2.1_1" id="wbp-script-js"></script>
 
-        // Create navigation dots
-        function createNavigation() {
-            const sections = document.querySelectorAll('.section');
-            const navContainer = document.getElementById('navigation');
-            
-            sections.forEach((section, index) => {
-                const dot = document.createElement('div');
-                dot.className = 'nav-dot';
-                dot.onclick = () => scrollToSection(section.id);
-                navContainer.appendChild(dot);
-            });
-            
-            // Set first dot as active
-            navContainer.children[0].classList.add('active');
-        }
+    <!-- External Libraries -->
+    <script src="https://umbkg.com/gp-code-styling/1.0/lib/gp-code-styling.js" id="gp-code-styling-js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.37.0/xlsx.full.min.js" id="kirimkit-js"></script>
 
-        // Handle scroll to update active dot
-        function handleScroll() {
-            const sections = document.querySelectorAll('.section');
-            const navDots = document.querySelectorAll('.nav-dot');
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop - sectionHeight / 3) {
-                    currentSection = section.id;
-                }
-            });
-            
-            navDots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.onclick.toString().includes(currentSection)) {
-                    dot.classList.add('active');
-                }
-            });
-        }
+    <!-- Comments Kit Scripts -->
+    <script id="wbp-js-script-js-extra"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/addons/comments-kit/js/wbp_script.js?ver=2.2.6" id="wbp-js-script-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/addons/comments-kit/js/libs/jquery.jPages.min.js?ver=0.7" id="wbp-jPages-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/addons/comments-kit/js/libs/jquery.textComments.min.js?ver=2.8" id="wbp-textComments-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/addons/comments-kit/js/libs/jquery.placeholder.min.js?ver=4.0.7" id="wbp-placeholder-js"></script>
+    <script src="https://ideainvitation.com/wp-content/plugins/maddingpress/addons/comments-kit/js/libs/autosize.min.js?ver=1.14" id="wbp-autosize-js"></script>
 
-        // Fungsi untuk mendapatkan nama dari URL
-        function getGuestNameFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return decodeURIComponent(urlParams.get('nama') || 'Tamu Undangan');
-        }
+    <!-- Theme Script -->
+    <script src="https://ideainvitation.com/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.4" id="hello-theme-frontend-js"></script>
 
-        // Fungsi untuk menyimpan data tamu
-        function saveGuestData(guestName) {
-            const guestsRef = ref(database, 'guests');
-            push(guestsRef, {
-                name: guestName,
-                timestamp: serverTimestamp(),
-                viewed: true
-            });
-        }
-
-        // Fungsi untuk mempersonalisasi undangan
-        function personalizeInvitation() {
-            const guestName = getGuestNameFromURL();
-            
-            // Personalisasi semua bagian yang diperlukan
-            document.getElementById('personalGreeting').textContent = 
-                `Kepada Yth. ${guestName}, kami mengundang Anda untuk hadir dalam acara pernikahan kami`;
-            
-            document.getElementById('openingGreeting').textContent = 
-                `Kepada Yth. ${guestName}, dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:`;
-            
-            document.getElementById('invitationGreeting').textContent = 
-                `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.`;
-            
-            document.getElementById('closingGreeting').textContent = 
-                `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
-            
-            // Simpan data tamu ke Firebase
-            saveGuestData(guestName);
-        }
-
-        // Fungsi untuk mengirim ucapan
-        function sendWishes() {
-            const name = document.getElementById('name').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            if (name && message) {
-                const wishesRef = ref(database, 'wishes');
-                push(wishesRef, {
-                    name: name,
-                    message: message,
-                    timestamp: serverTimestamp()
-                }).then(() => {
-                    document.getElementById('name').value = '';
-                    document.getElementById('message').value = '';
-                    alert('Ucapan Anda telah terkirim! Terima kasih.');
-                }).catch(error => {
-                    console.error('Error sending message:', error);
-                    alert('Maaf, terjadi kesalahan. Silakan coba lagi.');
-                });
-            } else {
-                alert('Silakan isi nama dan ucapan Anda');
-            }
-        }
-
-        // Fungsi untuk menampilkan ucapan
-        function displayWishes() {
-            const messagesContainer = document.getElementById('messages-container');
-            const wishesRef = ref(database, 'wishes');
-            
-            onValue(wishesRef, (snapshot) => {
-                messagesContainer.innerHTML = '';
-                
-                snapshot.forEach((childSnapshot) => {
-                    const wish = childSnapshot.val();
-                    const messageDiv = document.createElement('div');
-                    messageDiv.className = 'message';
-                    
-                    // Format tanggal
-                    const date = wish.timestamp ? new Date(wish.timestamp) : new Date();
-                    const formattedDate = date.toLocaleDateString('id-ID', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    });
-                    
-                    messageDiv.innerHTML = `
-                        <div class="message-name">${wish.name || 'Tamu'}</div>
-                        <div class="message-text">${wish.message}</div>
-                        <div class="message-time">${formattedDate}</div>
-                    `;
-                    
-                    messagesContainer.appendChild(messageDiv);
-                });
-                
-                // Scroll ke bawah
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            });
-        }
-
-        // Updated Music Player Control - Cassette Disk Design
-        function setupMusicPlayer() {
-            const music = document.getElementById('weddingMusic');
-            const player = document.getElementById('musicPlayer');
-            
-            // Set initial volume
-            music.volume = 0.5;
-            
-            // Auto-play after first interaction
-            const playMusic = () => {
-                music.play()
-                    .then(() => {
-                        player.classList.add('playing');
-                    })
-                    .catch(e => console.log("Autoplay prevented:", e));
-                
-                // Remove event listeners after first interaction
-                document.removeEventListener('click', playMusic);
-                document.removeEventListener('touchstart', playMusic);
-            };
-            
-            document.addEventListener('click', playMusic, { once: true });
-            document.addEventListener('touchstart', playMusic, { once: true });
-            
-            // Toggle play/pause on click
-            player.addEventListener('click', () => {
-                if (music.paused) {
-                    music.play();
-                    player.classList.add('playing');
-                } else {
-                    music.pause();
-                    player.classList.remove('playing');
-                }
-            });
-            
-            // Visual feedback when music is playing
-            music.addEventListener('play', () => {
-                player.classList.add('playing');
-            });
-            
-            music.addEventListener('pause', () => {
-                player.classList.remove('playing');
-            });
-            
-            // Handle page visibility changes
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) {
-                    music.pause();
-                    player.classList.remove('playing');
-                }
-            });
-        }
-
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            createNavigation();
-            displayWishes();
-            setupMusicPlayer();
-            
-            // Personalisasi undangan saat pertama kali dimuat
-            personalizeInvitation();
-            
-            // Update countdown every second
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-            
-            // Handle scroll events
-            window.addEventListener('scroll', handleScroll);
-            
-            // Event listener untuk form ucapan
-            document.getElementById('sendWishesBtn').addEventListener('click', sendWishes);
-        });
-    </script>
+    <!-- Additional Scripts -->
+    <script>//</script>
+    <script>//</script>
+    <script>//</script>
 </body>
 </html>
