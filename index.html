@@ -27,20 +27,6 @@
             overflow-x: hidden;
         }
 
-        .flower {
-            position: absolute;
-            font-size: 24px;
-            opacity: 0.7;
-            animation: float 5s infinite ease-in-out;
-            z-index: -1;
-            color: var(--accent-color);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
         .container {
             max-width: 100%;
             min-height: 100vh;
@@ -58,6 +44,9 @@
             align-items: center;
             text-align: center;
             position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .section::before {
@@ -506,7 +495,7 @@
         </div>
 
         <!-- Cover Section -->
-        <section class="section" id="cover">
+        <section class="section" id="cover" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h1>Undangan Pernikahan</h1>
                 <div class="couple-names">
@@ -521,7 +510,7 @@
         </section>
 
         <!-- Pembuka Section -->
-        <section class="section" id="opening">
+        <section class="section" id="opening" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
                 <p id="openingGreeting">Dengan memohos rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
@@ -534,7 +523,7 @@
         </section>
 
         <!-- Isi Undangan Section -->
-        <section class="section" id="invitation">
+        <section class="section" id="invitation" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h2>Informasi Acara</h2>
                 <div style="margin: 30px 0;">
@@ -552,7 +541,7 @@
         </section>
 
         <!-- Alamat Section -->
-        <section class="section" id="address">
+        <section class="section" id="address" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h2>Lokasi Acara</h2>
                 <p>Desa Sukapura, Kec. Rawamerta</p>
@@ -565,7 +554,7 @@
         </section>
 
         <!-- Amplop Digital Section -->
-        <section class="section" id="envelope">
+        <section class="section" id="envelope" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h2>Amplop Digital</h2>
                 <div class="envelope">
@@ -582,7 +571,7 @@
         </section>
 
         <!-- Penutup Section -->
-        <section class="section" id="closing">
+        <section class="section" id="closing" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h2>Penutup</h2>
                 <p id="closingGreeting">Atas kehadiran dan doa restunya, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
@@ -596,7 +585,7 @@
         </section>
 
         <!-- Countdown Section -->
-        <section class="section" id="countdown">
+        <section class="section" id="countdown" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h2>Menuju Hari Bahagia</h2>
                 <div class="countdown">
@@ -622,7 +611,7 @@
         </section>
 
         <!-- Ucapan Section -->
-        <section class="section" id="wishes">
+        <section class="section" id="wishes" style="background-image: url('https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif');">
             <div class="section-content">
                 <h2>Ucapan & Doa</h2>
                 <p>Berikan ucapan dan doa untuk kami</p>
@@ -673,31 +662,6 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const database = getDatabase(app);
-
-        // Fungsi untuk membuat dekorasi bunga
-        function createFlowers() {
-            const flowers = ['🌸', '🌹', '🌺', '🌻', '☁️', '🏵️', '💐', '🤍'];
-            const container = document.querySelector('.container');
-            
-            for (let i = 0; i < 20; i++) {
-                const flower = document.createElement('div');
-                flower.className = 'flower';
-                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-                
-                // Random position
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const delay = Math.random() * 5;
-                const duration = 3 + Math.random() * 7;
-                
-                flower.style.left = `${left}%`;
-                flower.style.top = `${top}%`;
-                flower.style.animationDelay = `${delay}s`;
-                flower.style.animationDuration = `${duration}s`;
-                
-                container.appendChild(flower);
-            }
-        }
 
         // Countdown timer
         function updateCountdown() {
@@ -913,7 +877,6 @@
 
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            createFlowers();
             createNavigation();
             displayWishes();
             setupMusicPlayer();
