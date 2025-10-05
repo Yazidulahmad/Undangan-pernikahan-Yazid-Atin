@@ -9,7 +9,7 @@
             --primary-color: #8B0000;
             --secondary-color: #A52A2A;
             --accent-color: #FF6347;
-            --text-color: #333333;
+            --text-color: #FFFFFF;
             --light-color: #f8f9fa;
             --dark-color: #1A0000;
             --gold-color: #D4AF37;
@@ -24,9 +24,25 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: var(--text-color);
-            background-color: var(--light-color);
             overflow-x: hidden;
             line-height: 1.6;
+        }
+
+        /* Background GIF untuk seluruh halaman */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+            pointer-events: none;
         }
 
         /* Cover Front Styles */
@@ -37,7 +53,7 @@
             width: 100%;
             height: 100vh;
             background: 
-                linear-gradient(135deg, rgba(139, 0, 0, 0.85) 0%, rgba(26, 0, 0, 0.9) 100%),
+                linear-gradient(135deg, rgba(139, 0, 0, 0.7) 0%, rgba(26, 0, 0, 0.8) 100%),
                 url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif');
             background-size: cover;
             background-position: center;
@@ -62,7 +78,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         .cover-subtitle {
@@ -70,6 +86,7 @@
             font-size: 1.8rem;
             margin-bottom: 40px;
             color: var(--gold-color);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .cover-couple {
@@ -81,12 +98,14 @@
             font-size: 2.5rem;
             margin: 10px 0;
             color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .cover-parents {
             font-size: 1rem;
             margin: 5px 0;
             color: #e0e0e0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         .open-invitation-btn {
@@ -102,6 +121,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .open-invitation-btn:hover {
@@ -109,6 +129,7 @@
             color: var(--dark-color);
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-shadow: none;
         }
 
         .open-invitation-btn:after {
@@ -137,7 +158,7 @@
             opacity: 1;
         }
 
-        /* Section Styles dengan Background GIF */
+        /* Section Styles dengan Background GIF langsung */
         .wedding-section {
             min-height: 100vh;
             padding: 80px 20px;
@@ -148,98 +169,86 @@
             overflow: hidden;
         }
 
-        /* Background GIF untuk setiap section dengan overlay */
-        .wedding-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)),
-                url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            z-index: -1;
-        }
-
         .section-content {
             max-width: 1200px;
             width: 100%;
             text-align: center;
             position: relative;
             z-index: 2;
-            background: rgba(255, 255, 255, 0.7);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Typography */
+        /* Typography dengan shadow untuk keterbacaan */
         .wedding-title {
             font-family: "Playfair Display", serif;
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--dark-color);
+            color: white;
             margin-bottom: 30px;
             line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         .wedding-subtitle {
             font-family: "Playfair Display", serif;
             font-size: 2.5rem;
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--gold-color);
             margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .wedding-heading {
             font-family: "Playfair Display", serif;
             font-size: 2rem;
             font-weight: 600;
-            color: var(--dark-color);
+            color: white;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .wedding-text {
             font-size: 1.1rem;
-            color: var(--text-color);
+            color: white;
             margin-bottom: 20px;
             line-height: 1.8;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Couple Names */
         .couple-names {
             margin: 40px 0;
             padding: 30px 0;
-            border-top: 2px solid var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
+            border-top: 2px solid var(--gold-color);
+            border-bottom: 2px solid var(--gold-color);
         }
 
         .name {
             font-family: "Playfair Display", serif;
             font-size: 2.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--gold-color);
             margin: 15px 0;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .parent-names {
             font-size: 1rem;
-            color: var(--text-color);
+            color: #e0e0e0;
             margin: 10px 0;
             font-style: italic;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Buttons */
         .wedding-btn {
             display: inline-block;
             padding: 15px 30px;
-            background-color: var(--primary-color);
+            background-color: rgba(139, 0, 0, 0.7);
             color: white;
             border: none;
             border-radius: 5px;
@@ -249,13 +258,14 @@
             margin: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .wedding-btn:hover {
-            background-color: var(--secondary-color);
+            background-color: rgba(165, 42, 42, 0.8);
             transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
         }
 
         /* Countdown */
@@ -275,8 +285,8 @@
         .countdown-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary-color);
-            background-color: white;
+            color: var(--gold-color);
+            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             width: 80px;
             height: 80px;
@@ -284,26 +294,28 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 2px solid var(--accent-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--gold-color);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .countdown-label {
             font-size: 0.9rem;
-            color: var(--text-color);
+            color: white;
             font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         /* Envelope */
         .envelope-container {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 40px;
             border-radius: 10px;
             max-width: 500px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             position: relative;
-            border: 1px solid rgba(233, 236, 239, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         /* Swipe Gallery Styles */
@@ -322,10 +334,10 @@
             height: 700px;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .gallery-track {
@@ -356,14 +368,14 @@
             width: 15px;
             height: 15px;
             border-radius: 50%;
-            background-color: rgba(204, 204, 204, 0.7);
+            background-color: rgba(255, 255, 255, 0.5);
             margin: 0 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .gallery-dot.active {
-            background-color: var(--primary-color);
+            background-color: var(--gold-color);
             transform: scale(1.3);
         }
 
@@ -371,7 +383,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.6);
             border: none;
             width: 60px;
             height: 60px;
@@ -383,11 +395,12 @@
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            color: white;
         }
 
         .gallery-arrow:hover {
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0.8);
             transform: translateY(-50%) scale(1.15);
         }
 
@@ -402,18 +415,19 @@
         .swipe-hint {
             text-align: center;
             margin-top: 20px;
-            color: #666;
+            color: #e0e0e0;
             font-size: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         /* Form Styles */
         .guest-form {
             margin-top: 30px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(233, 236, 239, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .form-group {
@@ -425,26 +439,27 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--text-color);
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .form-group input, 
         .form-group textarea {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 5px;
             font-family: inherit;
-            background-color: rgba(248, 249, 250, 0.7);
-            color: var(--text-color);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
             transition: border-color 0.3s;
         }
 
         .form-group input:focus, 
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
-            background-color: rgba(255, 255, 255, 0.9);
+            border-color: var(--gold-color);
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         .form-group textarea {
@@ -458,16 +473,16 @@
             max-height: 400px;
             overflow-y: auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(233, 236, 239, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .message {
             padding: 15px;
             margin-bottom: 15px;
-            border-bottom: 1px solid rgba(233, 236, 239, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             text-align: left;
         }
 
@@ -478,19 +493,22 @@
 
         .message-name {
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--gold-color);
             margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .message-text {
             margin-top: 5px;
-            color: var(--text-color);
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .message-time {
             font-size: 0.8rem;
-            color: #6c757d;
+            color: #b0b0b0;
             margin-top: 5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         /* Map */
@@ -499,8 +517,8 @@
             height: 300px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(233, 236, 239, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .map-container iframe {
@@ -517,10 +535,10 @@
             transform: translateX(-50%);
             display: flex;
             z-index: 100;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 15px;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(5px);
         }
 
@@ -528,14 +546,14 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: rgba(222, 226, 230, 0.7);
+            background-color: rgba(255, 255, 255, 0.5);
             margin: 0 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .nav-dot.active {
-            background-color: var(--accent-color);
+            background-color: var(--gold-color);
             transform: scale(1.3);
         }
 
@@ -547,9 +565,9 @@
             z-index: 100;
             width: 60px;
             height: 60px;
-            background-color: var(--primary-color);
+            background-color: rgba(139, 0, 0, 0.7);
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -558,7 +576,7 @@
         }
 
         .music-player:hover {
-            background-color: var(--secondary-color);
+            background-color: rgba(165, 42, 42, 0.8);
             transform: scale(1.1);
         }
 
@@ -699,7 +717,7 @@
                 <div class="couple-names">
                     <div class="name">Ahmad Yazidul Jihad</div>
                     <div class="parent-names">Bpk. Suhada (Alm) & Ibu Didah Saidah</div>
-                    <div style="font-size: 2rem; margin: 20px 0; color: var(--accent-color);">&</div>
+                    <div style="font-size: 2rem; margin: 20px 0; color: var(--gold-color);">&</div>
                     <div class="name">Hartini</div>
                     <div class="parent-names">Bpk. Ece & Ibu Maesaroh</div>
                 </div>
