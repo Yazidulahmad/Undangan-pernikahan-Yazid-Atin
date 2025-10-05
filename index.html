@@ -78,7 +78,6 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         .cover-subtitle {
@@ -86,7 +85,6 @@
             font-size: 1.8rem;
             margin-bottom: 40px;
             color: var(--gold-color);
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .cover-couple {
@@ -98,14 +96,12 @@
             font-size: 2.5rem;
             margin: 10px 0;
             color: white;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .cover-parents {
             font-size: 1rem;
             margin: 5px 0;
             color: #e0e0e0;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         .open-invitation-btn {
@@ -121,7 +117,6 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .open-invitation-btn:hover {
@@ -129,7 +124,6 @@
             color: var(--dark-color);
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            text-shadow: none;
         }
 
         .open-invitation-btn:after {
@@ -191,13 +185,9 @@
             position: relative;
             z-index: 2;
             padding: 40px;
-            border-radius: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Typography dengan shadow untuk keterbacaan */
+        /* Typography tanpa shadow */
         .wedding-title {
             font-family: "Playfair Display", serif;
             font-size: 3.5rem;
@@ -205,7 +195,6 @@
             color: white;
             margin-bottom: 30px;
             line-height: 1.2;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         .wedding-subtitle {
@@ -214,7 +203,6 @@
             font-weight: 600;
             color: var(--gold-color);
             margin-bottom: 20px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .wedding-heading {
@@ -223,7 +211,6 @@
             font-weight: 600;
             color: white;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .wedding-text {
@@ -231,7 +218,6 @@
             color: white;
             margin-bottom: 20px;
             line-height: 1.8;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Couple Names */
@@ -248,7 +234,6 @@
             font-weight: 700;
             color: var(--gold-color);
             margin: 15px 0;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .parent-names {
@@ -256,14 +241,13 @@
             color: #e0e0e0;
             margin: 10px 0;
             font-style: italic;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Buttons */
         .wedding-btn {
             display: inline-block;
             padding: 15px 30px;
-            background-color: rgba(139, 0, 0, 0.7);
+            background-color: var(--primary-color);
             color: white;
             border: none;
             border-radius: 5px;
@@ -273,14 +257,11 @@
             margin: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .wedding-btn:hover {
-            background-color: rgba(165, 42, 42, 0.8);
+            background-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
         }
 
         /* Countdown */
@@ -301,7 +282,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--gold-color);
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             width: 80px;
             height: 80px;
@@ -309,28 +290,23 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             border: 2px solid var(--gold-color);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .countdown-label {
             font-size: 0.9rem;
             color: white;
             font-weight: 600;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         /* Envelope */
         .envelope-container {
-            background-color: rgba(0, 0, 0, 0.5);
             padding: 40px;
             border-radius: 10px;
             max-width: 500px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             position: relative;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid var(--gold-color);
         }
 
         /* Swipe Gallery Styles */
@@ -349,9 +325,6 @@
             height: 700px;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -410,7 +383,6 @@
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             color: white;
         }
 
@@ -432,17 +404,14 @@
             margin-top: 20px;
             color: #e0e0e0;
             font-size: 1rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         /* Form Styles */
         .guest-form {
             margin-top: 30px;
-            background-color: rgba(0, 0, 0, 0.5);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid var(--gold-color);
         }
 
         .form-group {
@@ -455,7 +424,6 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .form-group input, 
@@ -465,7 +433,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 5px;
             font-family: inherit;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.3);
             color: white;
             transition: border-color 0.3s;
         }
@@ -474,7 +442,6 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--gold-color);
-            background-color: rgba(0, 0, 0, 0.7);
         }
 
         .form-group textarea {
@@ -488,10 +455,8 @@
             max-height: 400px;
             overflow-y: auto;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid var(--gold-color);
         }
 
         .message {
@@ -510,20 +475,17 @@
             font-weight: 700;
             color: var(--gold-color);
             margin-bottom: 5px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .message-text {
             margin-top: 5px;
             color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .message-time {
             font-size: 0.8rem;
             color: #b0b0b0;
             margin-top: 5px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         /* Map */
@@ -532,8 +494,7 @@
             height: 300px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid var(--gold-color);
         }
 
         .map-container iframe {
@@ -553,8 +514,6 @@
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 15px;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
         }
 
         .nav-dot {
@@ -580,9 +539,8 @@
             z-index: 100;
             width: 60px;
             height: 60px;
-            background-color: rgba(139, 0, 0, 0.7);
+            background-color: var(--primary-color);
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -591,7 +549,7 @@
         }
 
         .music-player:hover {
-            background-color: rgba(165, 42, 42, 0.8);
+            background-color: var(--secondary-color);
             transform: scale(1.1);
         }
 
