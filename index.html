@@ -13,7 +13,7 @@
             --light-color: #f8f9fa;
             --dark-color: #1A0000;
             --gold-color: #D4AF37;
-            --gif-bg: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif'); /* Ganti URL GIF Anda di sini */
+            --gif-bg: url('https://i.pinimg.com/originals/0b/a3/d6/0ba3d632f5f9c8d4c8e6c5e5e5e5e5e5.gif'); /* Ganti dengan URL GIF Anda */
         }
 
         * {
@@ -42,20 +42,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.15; /* Transparansi background GIF */
-            z-index: -2;
-            pointer-events: none;
-        }
-
-        /* Overlay untuk meningkatkan kontras */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.9) 100%);
+            opacity: 0.15;
             z-index: -1;
             pointer-events: none;
         }
@@ -164,35 +151,7 @@
             opacity: 1;
         }
 
-        .elementor-elementor-308818 {
-            width: 100%;
-            position: relative;
-        }
-
-        .e-con, .e-con-boxed {
-            position: relative;
-        }
-
-        .e-con-inner {
-            width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .e-flex {
-            display: flex;
-        }
-
-        .e-parent, .e-child {
-            position: relative;
-        }
-
-        .e-lazyloaded {
-            opacity: 1;
-            transition: opacity 0.3s;
-        }
-
-        /* Section Styles dengan Background Transparan */
+        /* Section Styles dengan Background GIF */
         .wedding-section {
             min-height: 100vh;
             padding: 80px 20px;
@@ -200,8 +159,35 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: rgba(255, 255, 255, 0.85); /* Background lebih solid untuk kontras lebih baik */
-            backdrop-filter: blur(5px); /* Efek blur untuk transparansi */
+            overflow: hidden;
+        }
+
+        /* Background GIF untuk setiap section */
+        .wedding-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: var(--gif-bg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Overlay untuk meningkatkan keterbacaan teks */
+        .wedding-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: -1;
         }
 
         .section-content {
@@ -210,6 +196,10 @@
             text-align: center;
             position: relative;
             z-index: 2;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* Typography */
@@ -220,7 +210,6 @@
             color: var(--dark-color);
             margin-bottom: 30px;
             line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Shadow teks untuk kontras lebih baik */
         }
 
         .wedding-subtitle {
@@ -229,7 +218,6 @@
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .wedding-heading {
@@ -238,7 +226,6 @@
             font-weight: 600;
             color: var(--dark-color);
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .wedding-text {
@@ -246,7 +233,6 @@
             color: var(--text-color);
             margin-bottom: 20px;
             line-height: 1.8;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         /* Couple Names */
@@ -263,7 +249,6 @@
             font-weight: 700;
             color: var(--primary-color);
             margin: 15px 0;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .parent-names {
@@ -271,7 +256,6 @@
             color: var(--text-color);
             margin: 10px 0;
             font-style: italic;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         /* Buttons */
@@ -335,7 +319,7 @@
 
         /* Envelope */
         .envelope-container {
-            background-color: rgba(255, 255, 255, 0.95); /* Lebih solid untuk kontras lebih baik */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 10px;
             max-width: 500px;
@@ -345,7 +329,7 @@
             border: 1px solid rgba(233, 236, 239, 0.5);
         }
 
-        /* Swipe Gallery Styles - DIPERBESAR dan DITINGGIKAN TANPA CAPTION */
+        /* Swipe Gallery Styles */
         .gallery-container {
             margin-top: 30px;
             position: relative;
@@ -358,13 +342,13 @@
         .swipe-gallery {
             position: relative;
             width: 100%;
-            height: 700px; /* DITINGGIKAN dari 600px */
+            height: 700px;
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.95); /* Background lebih solid */
-            backdrop-filter: blur(10px); /* Efek blur */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Border transparan */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .gallery-track {
@@ -385,7 +369,6 @@
             object-fit: cover;
         }
 
-        /* CAPTION DIHILANGKAN - Hapus semua style terkait caption */
         .gallery-nav {
             display: flex;
             justify-content: center;
@@ -411,7 +394,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.8);
             border: none;
             width: 60px;
             height: 60px;
@@ -449,7 +432,7 @@
         /* Form Styles */
         .guest-form {
             margin-top: 30px;
-            background-color: rgba(255, 255, 255, 0.95); /* Lebih solid untuk kontras lebih baik */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -498,7 +481,7 @@
             max-height: 400px;
             overflow-y: auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.95); /* Lebih solid untuk kontras lebih baik */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(233, 236, 239, 0.5);
@@ -615,21 +598,6 @@
             content: "▶";
         }
 
-        /* Elementor Shapes */
-        .elementor-shape {
-            overflow: hidden;
-            position: absolute;
-            left: 0;
-            width: 100%;
-            line-height: 0;
-            direction: ltr;
-            z-index: 1;
-        }
-
-        .elementor-shape-bottom {
-            bottom: -1px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .cover-title {
@@ -666,9 +634,8 @@
                 padding: 20px;
             }
             
-            /* Responsive untuk galeri yang diperbesar */
             .swipe-gallery {
-                height: 500px; /* Tetap tinggi di mobile */
+                height: 500px;
             }
             
             .gallery-arrow {
@@ -711,11 +678,15 @@
             .swipe-gallery {
                 height: 400px;
             }
+            
+            .section-content {
+                padding: 20px;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="wp-singular post-template post-template-elementor_canvas single single-post postid-308818 single-format-standard wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-12 elementor-page elementor-page-308818 e-ua-blink e-ua-chrome e-ua-webkit" data-elementor-device-mode="mobile" style="touch-action: auto; overflow: unset;">
+<body>
     
     <!-- Cover Front -->
     <div class="cover-front" id="coverFront">
@@ -735,264 +706,184 @@
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
-        <div data-elementor-type="wp-post" data-elementor-id="308818" class="elementor-elementor-308818" data-elementor-settings='{"ma_cmc_init_wait": "chen","no"}' data-elementor-post-type="post">
-            
-            <!-- Music Player -->
-            <div class="music-player" id="musicPlayer">
-                <div class="play-icon"></div>
-                <audio id="weddingMusic" loop>
-                    <source src="https://cdn.jsdelivr.net/gh/yazidulahmad/nikah-musik@main/sumpahdanmati.mp3" type="audio/mpeg">
-                    Browser Anda tidak mendukung pemutar audio.
-                </audio>
+        <!-- Music Player -->
+        <div class="music-player" id="musicPlayer">
+            <div class="play-icon"></div>
+            <audio id="weddingMusic" loop>
+                <source src="https://cdn.jsdelivr.net/gh/yazidulahmad/nikah-musik@main/sumpahdanmati.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung pemutar audio.
+            </audio>
+        </div>
+
+        <!-- Cover Section -->
+        <section class="wedding-section" id="cover">
+            <div class="section-content">
+                <h1 class="wedding-title">Undangan Pernikahan</h1>
+                <div class="couple-names">
+                    <div class="name">Ahmad Yazidul Jihad</div>
+                    <div class="parent-names">Bpk. Suhada (Alm) & Ibu Didah Saidah</div>
+                    <div style="font-size: 2rem; margin: 20px 0; color: var(--accent-color);">&</div>
+                    <div class="name">Hartini</div>
+                    <div class="parent-names">Bpk. Ece & Ibu Maesaroh</div>
+                </div>
+                <p class="wedding-text" id="personalGreeting">Kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
             </div>
+        </section>
 
-            <!-- Cover Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="cover">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h1 class="wedding-title">Undangan Pernikahan</h1>
-                        <div class="couple-names">
-                            <div class="name">Ahmad Yazidul Jihad</div>
-                            <div class="parent-names">Bpk. Suhada (Alm) & Ibu Didah Saidah</div>
-                            <div style="font-size: 2rem; margin: 20px 0; color: var(--accent-color);">&</div>
-                            <div class="name">Hartini</div>
-                            <div class="parent-names">Bpk. Ece & Ibu Maesaroh</div>
-                        </div>
-                        <p class="wedding-text" id="personalGreeting">Kami mengundang Anda untuk hadir dalam acara pernikahan kami</p>
-                    </div>
+        <!-- Opening Section -->
+        <section class="wedding-section" id="opening">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+                <p class="wedding-text" id="openingGreeting">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
+                <div class="couple-names" style="margin: 20px 0;">
+                    <div class="name">Ahmad Yazidul Jihad</div>
+                    <div class="name">Hartini</div>
                 </div>
-            </section>
-
-            <!-- Opening Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="opening">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-                        <p class="wedding-text" id="openingGreeting">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
-                        <div class="couple-names" style="margin: 20px 0;">
-                            <div class="name">Ahmad Yazidul Jihad</div>
-                            <div class="name">Hartini</div>
-                        </div>
-                        <p class="wedding-text">Semoga dengan ikatan pernikahan ini, kami dapat membangun keluarga yang sakinah, mawaddah, wa rahmah.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Invitation Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="invitation">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Informasi Acara</h2>
-                        <div style="margin: 30px 0;">
-                            <h3 class="wedding-heading">Akad Nikah</h3>
-                            <p class="wedding-text">09:30 WIB</p>
-                            <p class="wedding-text">24 Desember 2025</p>
-                        </div>
-                        <div style="margin: 30px 0;">
-                            <h3 class="wedding-heading">Resepsi Pernikahan</h3>
-                            <p class="wedding-text">08:00 WIB - Selesai</p>
-                            <p class="wedding-text">24 Desember 2025</p>
-                        </div>
-                        <p class="wedding-text" id="invitationGreeting">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Gallery Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="gallery">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Galeri Prewedding</h2>
-                        <p class="wedding-text">Kenangan indah kami sebelum hari pernikahan</p>
-                        
-                        <div class="gallery-container">
-                            <div class="swipe-gallery" id="swipeGallery">
-                                <div class="gallery-track" id="galleryTrack">
-                                    <!-- Slides will be added by JavaScript -->
-                                </div>
-                                <button class="gallery-arrow prev" id="prevBtn">&#10094;</button>
-                                <button class="gallery-arrow next" id="nextBtn">&#10095;</button>
-                            </div>
-                            <div class="gallery-nav" id="galleryNav">
-                                <!-- Dots will be added by JavaScript -->
-                            </div>
-                            <p class="swipe-hint">Gunakan tombol panah atau geser untuk melihat foto lainnya</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Address Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="address">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Lokasi Acara</h2>
-                        <p class="wedding-text">Desa Sukapura, Kec. Rawamerta</p>
-                        <p class="wedding-text">Kab. Karawang</p>
-                        <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d107.3822774!3d-6.5017598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDYuMyJTIDEwN8KwMjInNTYuMiJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                        <a href="https://maps.app.goo.gl/Ve1j7jKGvhfn4yP86?g_st=ic" class="wedding-btn" target="_blank">Buka di Google Maps</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Envelope Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="envelope">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Amplop Digital</h2>
-                        <div class="envelope-container">
-                            <p class="wedding-text">Doa restu Anda merupakan karunia yang sangat berarti bagi kami.</p>
-                            <p class="wedding-text">Jika berkenan, Anda dapat memberikan hadiah secara digital melalui:</p>
-                            <div style="margin: 20px 0;">
-                                <p class="wedding-text"><strong>Bank Mandiri</strong></p>
-                                <p class="wedding-text">1234 5678 9012 3456</p>
-                                <p class="wedding-text">a.n. Ahmad Yazidul Jihad</p>
-                            </div>
-                            <p class="wedding-text">Terima kasih atas segala kebaikan dan perhatiannya.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Closing Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="closing">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Penutup</h2>
-                        <p class="wedding-text" id="closingGreeting">Atas kehadiran dan doa restunya, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
-                        <div style="margin: 30px 0;">
-                            <p class="wedding-text">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                        </div>
-                        <div class="couple-names" style="margin: 30px 0;">
-                            <div class="name">Yazid & Atin</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Countdown Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="countdown">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Menuju Hari Bahagia</h2>
-                        <div class="countdown-container">
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="days">00</div>
-                                <div class="countdown-label">Hari</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="hours">00</div>
-                                <div class="countdown-label">Jam</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="minutes">00</div>
-                                <div class="countdown-label">Menit</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="seconds">00</div>
-                                <div class="countdown-label">Detik</div>
-                            </div>
-                        </div>
-                        <p class="wedding-text">24 Desember 2025</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Wishes Section -->
-            <section class="wedding-section e-con e-parent e-lazyloaded" id="wishes">
-                <div class="e-con-inner">
-                    <div class="section-content">
-                        <h2 class="wedding-subtitle">Ucapan & Doa</h2>
-                        <p class="wedding-text">Berikan ucapan dan doa untuk kami</p>
-                        
-                        <div class="guest-form">
-                            <div class="form-group">
-                                <label for="name">Nama Anda</label>
-                                <input type="text" id="name" placeholder="Nama Anda">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Ucapan & Doa</label>
-                                <textarea id="message" placeholder="Tulis ucapan dan doa untuk kami"></textarea>
-                            </div>
-                            <button class="wedding-btn" id="sendWishesBtn">Kirim Ucapan</button>
-                        </div>
-                        
-                        <div class="messages-container" id="messages-container">
-                            <!-- Messages will appear here -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="wedding-navigation" id="navigation">
-                <!-- Navigation dots will be added here by JavaScript -->
+                <p class="wedding-text">Semoga dengan ikatan pernikahan ini, kami dapat membangun keluarga yang sakinah, mawaddah, wa rahmah.</p>
             </div>
+        </section>
+
+        <!-- Invitation Section -->
+        <section class="wedding-section" id="invitation">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Informasi Acara</h2>
+                <div style="margin: 30px 0;">
+                    <h3 class="wedding-heading">Akad Nikah</h3>
+                    <p class="wedding-text">09:30 WIB</p>
+                    <p class="wedding-text">24 Desember 2025</p>
+                </div>
+                <div style="margin: 30px 0;">
+                    <h3 class="wedding-heading">Resepsi Pernikahan</h3>
+                    <p class="wedding-text">08:00 WIB - Selesai</p>
+                    <p class="wedding-text">24 Desember 2025</p>
+                </div>
+                <p class="wedding-text" id="invitationGreeting">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="wedding-section" id="gallery">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Galeri Prewedding</h2>
+                <p class="wedding-text">Kenangan indah kami sebelum hari pernikahan</p>
+                
+                <div class="gallery-container">
+                    <div class="swipe-gallery" id="swipeGallery">
+                        <div class="gallery-track" id="galleryTrack">
+                            <!-- Slides will be added by JavaScript -->
+                        </div>
+                        <button class="gallery-arrow prev" id="prevBtn">&#10094;</button>
+                        <button class="gallery-arrow next" id="nextBtn">&#10095;</button>
+                    </div>
+                    <div class="gallery-nav" id="galleryNav">
+                        <!-- Dots will be added by JavaScript -->
+                    </div>
+                    <p class="swipe-hint">Gunakan tombol panah atau geser untuk melihat foto lainnya</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Address Section -->
+        <section class="wedding-section" id="address">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Lokasi Acara</h2>
+                <p class="wedding-text">Desa Sukapura, Kec. Rawamerta</p>
+                <p class="wedding-text">Kab. Karawang</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d107.3822774!3d-6.5017598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzAnMDYuMyJTIDEwN8KwMjInNTYuMiJF!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/Ve1j7jKGvhfn4yP86?g_st=ic" class="wedding-btn" target="_blank">Buka di Google Maps</a>
+            </div>
+        </section>
+
+        <!-- Envelope Section -->
+        <section class="wedding-section" id="envelope">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Amplop Digital</h2>
+                <div class="envelope-container">
+                    <p class="wedding-text">Doa restu Anda merupakan karunia yang sangat berarti bagi kami.</p>
+                    <p class="wedding-text">Jika berkenan, Anda dapat memberikan hadiah secara digital melalui:</p>
+                    <div style="margin: 20px 0;">
+                        <p class="wedding-text"><strong>Bank Mandiri</strong></p>
+                        <p class="wedding-text">1234 5678 9012 3456</p>
+                        <p class="wedding-text">a.n. Ahmad Yazidul Jihad</p>
+                    </div>
+                    <p class="wedding-text">Terima kasih atas segala kebaikan dan perhatiannya.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing Section -->
+        <section class="wedding-section" id="closing">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Penutup</h2>
+                <p class="wedding-text" id="closingGreeting">Atas kehadiran dan doa restunya, kami mengucapkan terima kasih yang sebesar-besarnya.</p>
+                <div style="margin: 30px 0;">
+                    <p class="wedding-text">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                </div>
+                <div class="couple-names" style="margin: 30px 0;">
+                    <div class="name">Yazid & Atin</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="wedding-section" id="countdown">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Menuju Hari Bahagia</h2>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
+                <p class="wedding-text">24 Desember 2025</p>
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wedding-section" id="wishes">
+            <div class="section-content">
+                <h2 class="wedding-subtitle">Ucapan & Doa</h2>
+                <p class="wedding-text">Berikan ucapan dan doa untuk kami</p>
+                
+                <div class="guest-form">
+                    <div class="form-group">
+                        <label for="name">Nama Anda</label>
+                        <input type="text" id="name" placeholder="Nama Anda">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ucapan & Doa</label>
+                        <textarea id="message" placeholder="Tulis ucapan dan doa untuk kami"></textarea>
+                    </div>
+                    <button class="wedding-btn" id="sendWishesBtn">Kirim Ucapan</button>
+                </div>
+                
+                <div class="messages-container" id="messages-container">
+                    <!-- Messages will appear here -->
+                </div>
+            </div>
+        </section>
+
+        <div class="wedding-navigation" id="navigation">
+            <!-- Navigation dots will be added here by JavaScript -->
         </div>
     </div>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
-        import { getDatabase, ref, push, onValue, serverTimestamp, orderByChild } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDEcudJg0ZYcsc--zyOtEdJuoEyWctPeG4",
-            authDomain: "pernikahan-yazid-atin.firebaseapp.com",
-            databaseURL: "https://pernikahan-yazid-atin-default-rtdb.firebaseio.com",
-            projectId: "pernikahan-yazid-atin",
-            storageBucket: "pernikahan-yazid-atin.firebasestorage.app",
-            messagingSenderId: "522239828633",
-            appId: "1:522239828633:web:a29153664cf603fd448e08",
-            measurementId: "G-VSZC802Y87"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const database = getDatabase(app);
-
-        // Cover Front Functionality
-        function openInvitation() {
-            const coverFront = document.getElementById('coverFront');
-            const mainContent = document.getElementById('mainContent');
-            
-            // Add hidden class to cover with transition
-            coverFront.classList.add('hidden');
-            
-            // Show main content after a delay
-            setTimeout(() => {
-                mainContent.classList.add('visible');
-                // Scroll to top of main content
-                window.scrollTo(0, 0);
-                
-                // Auto-play music when opening invitation
-                const music = document.getElementById('weddingMusic');
-                const player = document.getElementById('musicPlayer');
-                
-                // Set volume
-                music.volume = 0.5;
-                
-                // Play music
-                music.play().then(() => {
-                    player.classList.add('playing');
-                }).catch(e => {
-                    console.log("Autoplay prevented:", e);
-                    // If autoplay is blocked, show play button
-                    player.style.display = 'flex';
-                });
-                
-            }, 800);
-            
-            // Initialize main content functionality
-            initializeMainContent();
-        }
-
-        // Gallery Data - Using higher resolution images (CAPTION DIHAPUS)
+    <script>
+        // Gallery Data
         const galleryImages = [
             {
                 src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
@@ -1035,8 +926,6 @@
                 img.src = image.src;
                 img.alt = "Foto Prewedding";
                 img.loading = "lazy";
-                
-                // CAPTION DIHAPUS - tidak membuat elemen caption
                 
                 slide.appendChild(img);
                 galleryTrack.appendChild(slide);
@@ -1159,6 +1048,42 @@
             }
         }
 
+        // Cover Front Functionality
+        function openInvitation() {
+            const coverFront = document.getElementById('coverFront');
+            const mainContent = document.getElementById('mainContent');
+            
+            // Add hidden class to cover with transition
+            coverFront.classList.add('hidden');
+            
+            // Show main content after a delay
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+                // Scroll to top of main content
+                window.scrollTo(0, 0);
+                
+                // Auto-play music when opening invitation
+                const music = document.getElementById('weddingMusic');
+                const player = document.getElementById('musicPlayer');
+                
+                // Set volume
+                music.volume = 0.5;
+                
+                // Play music
+                music.play().then(() => {
+                    player.classList.add('playing');
+                }).catch(e => {
+                    console.log("Autoplay prevented:", e);
+                    // If autoplay is blocked, show play button
+                    player.style.display = 'flex';
+                });
+                
+            }, 800);
+            
+            // Initialize main content functionality
+            initializeMainContent();
+        }
+
         // Initialize main content functionality
         function initializeMainContent() {
             // Initialize gallery
@@ -1231,16 +1156,6 @@
                 return decodeURIComponent(urlParams.get('nama') || 'Tamu Undangan');
             }
 
-            // Fungsi untuk menyimpan data tamu
-            function saveGuestData(guestName) {
-                const guestsRef = ref(database, 'guests');
-                push(guestsRef, {
-                    name: guestName,
-                    timestamp: serverTimestamp(),
-                    viewed: true
-                });
-            }
-
             // Fungsi untuk mempersonalisasi undangan
             function personalizeInvitation() {
                 const guestName = getGuestNameFromURL();
@@ -1257,9 +1172,6 @@
                 
                 document.getElementById('closingGreeting').textContent = 
                     `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
-                
-                // Simpan data tamu ke Firebase
-                saveGuestData(guestName);
             }
 
             // Fungsi untuk mengirim ucapan
@@ -1268,19 +1180,19 @@
                 const message = document.getElementById('message').value.trim();
                 
                 if (name && message) {
-                    const wishesRef = ref(database, 'wishes');
-                    push(wishesRef, {
+                    // Simpan ke localStorage untuk demo
+                    const wishes = JSON.parse(localStorage.getItem('wishes')) || [];
+                    wishes.push({
                         name: name,
                         message: message,
-                        timestamp: serverTimestamp()
-                    }).then(() => {
-                        document.getElementById('name').value = '';
-                        document.getElementById('message').value = '';
-                        alert('Ucapan Anda telah terkirim! Terima kasih.');
-                    }).catch(error => {
-                        console.error('Error sending message:', error);
-                        alert('Maaf, terjadi kesalahan. Silakan coba lagi.');
+                        timestamp: new Date().toLocaleString('id-ID')
                     });
+                    localStorage.setItem('wishes', JSON.stringify(wishes));
+                    
+                    document.getElementById('name').value = '';
+                    document.getElementById('message').value = '';
+                    alert('Ucapan Anda telah terkirim! Terima kasih.');
+                    displayWishes();
                 } else {
                     alert('Silakan isi nama dan ucapan Anda');
                 }
@@ -1289,38 +1201,25 @@
             // Fungsi untuk menampilkan ucapan
             function displayWishes() {
                 const messagesContainer = document.getElementById('messages-container');
-                const wishesRef = ref(database, 'wishes');
+                const wishes = JSON.parse(localStorage.getItem('wishes')) || [];
                 
-                onValue(wishesRef, (snapshot) => {
-                    messagesContainer.innerHTML = '';
+                messagesContainer.innerHTML = '';
+                
+                wishes.forEach(wish => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'message';
                     
-                    snapshot.forEach((childSnapshot) => {
-                        const wish = childSnapshot.val();
-                        const messageDiv = document.createElement('div');
-                        messageDiv.className = 'message';
-                        
-                        // Format tanggal
-                        const date = wish.timestamp ? new Date(wish.timestamp) : new Date();
-                        const formattedDate = date.toLocaleDateString('id-ID', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric',
-                            hour: '2-digit',
-                            minute: '2-digit'
-                        });
-                        
-                        messageDiv.innerHTML = `
-                            <div class="message-name">${wish.name || 'Tamu'}</div>
-                            <div class="message-text">${wish.message}</div>
-                            <div class="message-time">${formattedDate}</div>
-                        `;
-                        
-                        messagesContainer.appendChild(messageDiv);
-                    });
+                    messageDiv.innerHTML = `
+                        <div class="message-name">${wish.name || 'Tamu'}</div>
+                        <div class="message-text">${wish.message}</div>
+                        <div class="message-time">${wish.timestamp}</div>
+                    `;
                     
-                    // Scroll ke bawah
-                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    messagesContainer.appendChild(messageDiv);
                 });
+                
+                // Scroll ke bawah
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
 
             // Music Player Control
