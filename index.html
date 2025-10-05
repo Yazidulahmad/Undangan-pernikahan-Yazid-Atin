@@ -43,6 +43,19 @@
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0.15; /* Transparansi background GIF */
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Overlay untuk meningkatkan kontras */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.9) 100%);
             z-index: -1;
             pointer-events: none;
         }
@@ -187,7 +200,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: rgba(248, 249, 250, 0.7); /* Background transparan */
+            background: rgba(255, 255, 255, 0.85); /* Background lebih solid untuk kontras lebih baik */
             backdrop-filter: blur(5px); /* Efek blur untuk transparansi */
         }
 
@@ -207,6 +220,7 @@
             color: var(--dark-color);
             margin-bottom: 30px;
             line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Shadow teks untuk kontras lebih baik */
         }
 
         .wedding-subtitle {
@@ -215,6 +229,7 @@
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .wedding-heading {
@@ -223,6 +238,7 @@
             font-weight: 600;
             color: var(--dark-color);
             margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .wedding-text {
@@ -230,6 +246,7 @@
             color: var(--text-color);
             margin-bottom: 20px;
             line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         /* Couple Names */
@@ -246,6 +263,7 @@
             font-weight: 700;
             color: var(--primary-color);
             margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .parent-names {
@@ -253,6 +271,7 @@
             color: var(--text-color);
             margin: 10px 0;
             font-style: italic;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         /* Buttons */
@@ -316,7 +335,7 @@
 
         /* Envelope */
         .envelope-container {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95); /* Lebih solid untuk kontras lebih baik */
             padding: 40px;
             border-radius: 10px;
             max-width: 500px;
@@ -343,7 +362,7 @@
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.1); /* Background transparan untuk galeri */
+            background: rgba(255, 255, 255, 0.95); /* Background lebih solid */
             backdrop-filter: blur(10px); /* Efek blur */
             border: 1px solid rgba(255, 255, 255, 0.2); /* Border transparan */
         }
@@ -392,7 +411,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             border: none;
             width: 60px;
             height: 60px;
@@ -430,7 +449,7 @@
         /* Form Styles */
         .guest-form {
             margin-top: 30px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95); /* Lebih solid untuk kontras lebih baik */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -479,7 +498,7 @@
             max-height: 400px;
             overflow-y: auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95); /* Lebih solid untuk kontras lebih baik */
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(233, 236, 239, 0.5);
