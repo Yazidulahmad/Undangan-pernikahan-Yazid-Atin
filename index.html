@@ -26,6 +26,7 @@
             color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.6;
+            background: #1A0000; /* Fallback color */
         }
 
         /* Background GIF untuk seluruh halaman */
@@ -163,7 +164,7 @@
             overflow: hidden;
         }
 
-        /* Background GIF untuk setiap section dengan presisi */
+        /* Background untuk setiap section */
         .wedding-section::before {
             content: '';
             position: absolute;
@@ -171,7 +172,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif');
+            background: 
+                linear-gradient(rgba(26, 0, 0, 0.7), rgba(26, 0, 0, 0.7)),
+                url('https://github.com/Yazidulahmad/Halaman-cover/raw/refs/heads/main/IMG_3038.gif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -187,7 +190,7 @@
             padding: 40px;
         }
 
-        /* Typography tanpa shadow */
+        /* Typography */
         .wedding-title {
             font-family: "Playfair Display", serif;
             font-size: 3.5rem;
@@ -307,6 +310,7 @@
             margin: 0 auto;
             position: relative;
             border: 1px solid var(--gold-color);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         /* Swipe Gallery Styles */
@@ -412,6 +416,7 @@
             padding: 30px;
             border-radius: 10px;
             border: 1px solid var(--gold-color);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .form-group {
@@ -457,6 +462,7 @@
             padding: 20px;
             border-radius: 10px;
             border: 1px solid var(--gold-color);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .message {
@@ -880,6 +886,11 @@
             const galleryTrack = document.getElementById('galleryTrack');
             const galleryNav = document.getElementById('galleryNav');
             
+            if (!galleryTrack || !galleryNav) {
+                console.error('Gallery elements not found');
+                return;
+            }
+            
             // Clear existing content
             galleryTrack.innerHTML = '';
             galleryNav.innerHTML = '';
@@ -912,13 +923,20 @@
             });
             
             // Add event listeners to arrows
-            document.getElementById('prevBtn').addEventListener('click', () => {
-                prevSlide();
-            });
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
             
-            document.getElementById('nextBtn').addEventListener('click', () => {
-                nextSlide();
-            });
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                });
+            }
             
             // Add swipe functionality
             setupSwipeEvents();
@@ -933,6 +951,8 @@
             const galleryTrack = document.getElementById('galleryTrack');
             const dots = document.querySelectorAll('.gallery-dot');
             
+            if (!galleryTrack) return;
+            
             // Update current slide
             currentSlide = index;
             
@@ -941,7 +961,9 @@
             
             // Update dots
             dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
+            if (dots[index]) {
+                dots[index].classList.add('active');
+            }
         }
 
         function prevSlide() {
@@ -962,6 +984,8 @@
 
         function setupSwipeEvents() {
             const gallery = document.getElementById('swipeGallery');
+            if (!gallery) return;
+            
             let startX = 0;
             let endX = 0;
             
@@ -1021,6 +1045,11 @@
             const coverFront = document.getElementById('coverFront');
             const mainContent = document.getElementById('mainContent');
             
+            if (!coverFront || !mainContent) {
+                console.error('Required elements not found');
+                return;
+            }
+            
             // Add hidden class to cover with transition
             coverFront.classList.add('hidden');
             
@@ -1034,17 +1063,19 @@
                 const music = document.getElementById('weddingMusic');
                 const player = document.getElementById('musicPlayer');
                 
-                // Set volume
-                music.volume = 0.5;
-                
-                // Play music
-                music.play().then(() => {
-                    player.classList.add('playing');
-                }).catch(e => {
-                    console.log("Autoplay prevented:", e);
-                    // If autoplay is blocked, show play button
-                    player.style.display = 'flex';
-                });
+                if (music && player) {
+                    // Set volume
+                    music.volume = 0.5;
+                    
+                    // Play music
+                    music.play().then(() => {
+                        player.classList.add('playing');
+                    }).catch(e => {
+                        console.log("Autoplay prevented:", e);
+                        // If autoplay is blocked, show play button
+                        player.style.display = 'flex';
+                    });
+                }
                 
             }, 800);
             
@@ -1068,21 +1099,32 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                // Update countdown elements
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                
+                if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+                if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+                if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+                if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
             }
 
             // Scroll to section
             function scrollToSection(sectionId) {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
             }
 
             // Create navigation dots
             function createNavigation() {
                 const sections = document.querySelectorAll('.wedding-section');
                 const navContainer = document.getElementById('navigation');
+                
+                if (!navContainer) return;
                 
                 sections.forEach((section, index) => {
                     const dot = document.createElement('div');
@@ -1092,7 +1134,9 @@
                 });
                 
                 // Set first dot as active
-                navContainer.children[0].classList.add('active');
+                if (navContainer.children.length > 0) {
+                    navContainer.children[0].classList.add('active');
+                }
             }
 
             // Handle scroll to update active dot
@@ -1112,7 +1156,7 @@
                 
                 navDots.forEach(dot => {
                     dot.classList.remove('active');
-                    if (dot.onclick.toString().includes(currentSection)) {
+                    if (dot.onclick && dot.onclick.toString().includes(currentSection)) {
                         dot.classList.add('active');
                     }
                 });
@@ -1129,23 +1173,41 @@
                 const guestName = getGuestNameFromURL();
                 
                 // Personalisasi semua bagian yang diperlukan
-                document.getElementById('personalGreeting').textContent = 
-                    `Kepada Yth. ${guestName}, kami mengundang Anda untuk hadir dalam acara pernikahan kami`;
+                const personalGreeting = document.getElementById('personalGreeting');
+                const openingGreeting = document.getElementById('openingGreeting');
+                const invitationGreeting = document.getElementById('invitationGreeting');
+                const closingGreeting = document.getElementById('closingGreeting');
                 
-                document.getElementById('openingGreeting').textContent = 
-                    `Kepada Yth. ${guestName}, dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:`;
+                if (personalGreeting) {
+                    personalGreeting.textContent = 
+                        `Kepada Yth. ${guestName}, kami mengundang Anda untuk hadir dalam acara pernikahan kami`;
+                }
                 
-                document.getElementById('invitationGreeting').textContent = 
-                    `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.`;
+                if (openingGreeting) {
+                    openingGreeting.textContent = 
+                        `Kepada Yth. ${guestName}, dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami:`;
+                }
                 
-                document.getElementById('closingGreeting').textContent = 
-                    `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
+                if (invitationGreeting) {
+                    invitationGreeting.textContent = 
+                        `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.`;
+                }
+                
+                if (closingGreeting) {
+                    closingGreeting.textContent = 
+                        `Atas kehadiran dan doa restu Anda, kami mengucapkan terima kasih yang sebesar-besarnya.`;
+                }
             }
 
             // Fungsi untuk mengirim ucapan
             function sendWishes() {
-                const name = document.getElementById('name').value.trim();
-                const message = document.getElementById('message').value.trim();
+                const nameInput = document.getElementById('name');
+                const messageInput = document.getElementById('message');
+                
+                if (!nameInput || !messageInput) return;
+                
+                const name = nameInput.value.trim();
+                const message = messageInput.value.trim();
                 
                 if (name && message) {
                     // Simpan ke localStorage untuk demo
@@ -1157,8 +1219,8 @@
                     });
                     localStorage.setItem('wishes', JSON.stringify(wishes));
                     
-                    document.getElementById('name').value = '';
-                    document.getElementById('message').value = '';
+                    nameInput.value = '';
+                    messageInput.value = '';
                     alert('Ucapan Anda telah terkirim! Terima kasih.');
                     displayWishes();
                 } else {
@@ -1169,6 +1231,8 @@
             // Fungsi untuk menampilkan ucapan
             function displayWishes() {
                 const messagesContainer = document.getElementById('messages-container');
+                if (!messagesContainer) return;
+                
                 const wishes = JSON.parse(localStorage.getItem('wishes')) || [];
                 
                 messagesContainer.innerHTML = '';
@@ -1194,6 +1258,8 @@
             function setupMusicPlayer() {
                 const music = document.getElementById('weddingMusic');
                 const player = document.getElementById('musicPlayer');
+                
+                if (!music || !player) return;
                 
                 // Toggle play/pause on click
                 player.addEventListener('click', () => {
@@ -1240,13 +1306,19 @@
             window.addEventListener('scroll', handleScroll);
             
             // Event listener untuk form ucapan
-            document.getElementById('sendWishesBtn').addEventListener('click', sendWishes);
+            const sendWishesBtn = document.getElementById('sendWishesBtn');
+            if (sendWishesBtn) {
+                sendWishesBtn.addEventListener('click', sendWishes);
+            }
         }
 
         // Initialize cover front
         document.addEventListener('DOMContentLoaded', () => {
             // Button click event
-            document.getElementById('openInvitationBtn').addEventListener('click', openInvitation);
+            const openInvitationBtn = document.getElementById('openInvitationBtn');
+            if (openInvitationBtn) {
+                openInvitationBtn.addEventListener('click', openInvitation);
+            }
             
             // Keyboard event for accessibility
             document.addEventListener('keyup', (e) => {
